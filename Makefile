@@ -11,17 +11,17 @@ CC=		gcc
 
 FLAGS=	-Wall -Wextra -Werror -I./include
 
-LFLAGS=	-L./lib -lmy -lmy_getopt -lmy_fgets
+LFLAGS=	-L./lib -lmy -lmy_getopt -lclist
 ifeq ($(shell cat /etc/*-release | grep "Fedora"), )
 LFLAGS+=	-lcsfml-window -lcsfml-graphics -lcsfml-audio -lcsfml-system
 else
 LFLAGS+=	-lc_graph_prog
 endif
 
-NAME=	my_runner
+NAME=	my_cook
 
 SRC_DIR=	$(realpath ./srcs)
-SRC=		<..>
+SRC=		$(SRC_DIR)/main.c
 
 OBJ=		$(SRC:.c=.o)
 

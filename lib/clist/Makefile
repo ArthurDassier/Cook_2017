@@ -27,8 +27,8 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ) $(INCLUDE)
 	$(AR) $(NAME) $(OBJ)
-#$(CP) $(NAME) ../
-#$(CP) $(INCLUDE) ../../include/
+	$(CP) $(NAME) ../
+	$(CP) $(INCLUDE) ../../include/
 
 .c.o:
 	$(CC) $(FLAGS) -o $@ -c $<
