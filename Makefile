@@ -9,7 +9,7 @@
 
 CC=		gcc
 
-FLAGS=	-Wall -Wextra -Werror -I./include
+FLAGS=	-Wall -Wextra -I./include
 
 LFLAGS=	-L./lib -lmy -lmy_getopt -lclist
 ifeq ($(shell cat /etc/*-release | grep "Fedora"), )

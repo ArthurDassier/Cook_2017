@@ -5,7 +5,9 @@
 ** main_file
 */
 
-int main()
+#include "my_cook.h"
+
+int main(int ac, char **av)
 {
 	return (0);
 }

@@ -13,7 +13,8 @@ FLAGS=	-Wall -Wextra -I./include
 NAME=	libmy.a
 
 INCLUDE_DIR=	$(realpath ./include)
-INCLUDE=		$(INCLUDE_DIR)/my.h                   \
+INCLUDE=		$(INCLUDE_DIR)/my.h                            \
+				$(INCLUDE_DIR)/get_next_line.h                 \
 				$(INCLUDE_DIR)/my_printf.h
 
 SRC_DIR=	$(realpath ./src)
