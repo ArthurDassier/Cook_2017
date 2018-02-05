@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_cook.h
 ** File description:
-** <..>
+** config
 */
 
 #ifndef MY_COOK_H_
@@ -15,9 +15,9 @@
 #include <SFML/Graphics.h>
 #include <SFML/System.h>
 #include <SFML/Audio.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #define WIN "Zonan_Kebab"
 #define WIDTH 1920
