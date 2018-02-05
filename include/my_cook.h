@@ -19,12 +19,17 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+typedef struct __entity__ button_t;
+
 struct __entity__
 {
 	sfVector2f	pos;
 	sfSprite	**sprite;
-	int	(*draw)(struct __entity__ *, sfRenderWindow *);
-	int	(*move)(struct __entity__ *, int, int);
+	int		(*draw)(struct __entity__ *, sfRenderWindow *);
+	int		(*move)(struct __entity__ *, int, int);
+	int		(*collide)(struct __entity__ *, int, int);
 };
+
+button_t *create_button (int, int);
 
 #endif

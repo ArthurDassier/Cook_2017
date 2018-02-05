@@ -21,7 +21,8 @@ endif
 NAME=	my_cook
 
 SRC_DIR=	$(realpath ./srcs)
-SRC=		$(SRC_DIR)/main.c
+SRC=		$(SRC_DIR)/main.c		\
+		$(SRC_DIR)/create_button.c
 
 OBJ=		$(SRC:.c=.o)
 

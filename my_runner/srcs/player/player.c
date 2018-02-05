@@ -36,7 +36,7 @@ static void set_variables(player_t *p1, int x, int y)
 
 player_t *create_player(int x, int y)
 {
-	player_t	*p1 = (player_t *)malloc(sizeof(player_t));
+	player_t	*p1 = malloc(sizeof(player_t));
 	sfIntRect	*size = create_size();
 	sfVector2f	sz;
 	sfTexture	*tx;
@@ -44,7 +44,7 @@ player_t *create_player(int x, int y)
 	if (size == NULL || p1 == NULL)
 		return (NULL);
 	set_variables(p1, x, y);
-	p1->sprite = (sfSprite **)malloc(sizeof(sfSprite *) * PLAYER_FRAMES);
+	p1->sprite = malloc(sizeof(sfSprite *) * PLAYER_FRAMES);
 	if (p1->sprite == NULL)
 		return (NULL);
 	sz.x = 50 / 15;
