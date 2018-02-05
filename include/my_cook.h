@@ -19,6 +19,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#define WIN "Zonan_Kebab"
+#define WIDTH 1920
+#define HEIGHT 1080
+
 typedef struct __entity__ button_t;
 
 struct __entity__
@@ -30,6 +34,15 @@ struct __entity__
 	int		(*collide)(struct __entity__ *, int, int);
 };
 
+struct game
+{
+	struct queue	*menu;
+	sfRenderWindow	*wd;
+	sfVideoMode	video_md;
+	sfTime		tm;
+};
+
+struct game *init(void);
 button_t *create_button (int, int);
 
 #endif
