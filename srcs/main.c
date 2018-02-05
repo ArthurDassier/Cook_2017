@@ -11,11 +11,13 @@ int main(int ac, char **av)
 {
 	struct game	*gm = init();
 	button_t	*btn = create_button(100, 100);
+	food_t		*food = create_food(800, 800, PLATS);
 
 	if (gm == NULL)
 		return (84);
 	while (sfRenderWindow_isOpen(gm->wd)) {
 		btn->draw(btn, gm->wd);
+		food->draw(food, gm->wd);
 		if (btn->collide(btn, sfMouse_getPositionRenderWindow(gm->wd).x,
 			sfMouse_getPositionRenderWindow(gm->wd).y) == 1) {
 			//printf("Oooh clique \n");
