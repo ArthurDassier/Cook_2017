@@ -18,9 +18,10 @@ int main(int ac, char **av)
 		btn->draw(btn, gm->wd);
 		if (btn->collide(btn, sfMouse_getPositionRenderWindow(gm->wd).x,
 			sfMouse_getPositionRenderWindow(gm->wd).y) == 1) {
-			printf("Oooh clique \n");
+			//printf("Oooh clique \n");
 		}
 		sfRenderWindow_display(gm->wd);
+		close_wd(gm);
 		sfSleep(gm->tm);
 	}
 	return (0);

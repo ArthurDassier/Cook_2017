@@ -44,5 +44,6 @@ struct game
 
 struct game *init(void);
 button_t *create_button (int, int);
+void close_wd(struct game *gm);
 
 #endif
