@@ -43,7 +43,7 @@ background_t *create_background(int x, int y, enum background type)
 	bg->sprite = malloc(sizeof(sfSprite *) * 2);
 	if (bg->sprite == NULL)
 		return (NULL);
-	tx = sfTexture_createFromFile("textures/1376139933194.jpg", NULL);
+	tx = sfTexture_createFromFile(bckg_tab(type), NULL);
 	bg->sprite[0] = sfSprite_create();
 	sfSprite_setTexture(bg->sprite[0], tx, sfTrue);
 	bg->draw = &draw_fp;

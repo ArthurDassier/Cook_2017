@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** create_button.c
 ** File description:
-** blabla
+** <..>
 */
 
 #include "my_cook.h"
@@ -24,29 +24,30 @@ static int move_fp(button_t *self, int x, int y)
 static int collide_fp(button_t *self, int x, int y)
 {
 	sfFloatRect	taille = sfSprite_getGlobalBounds(self->sprite[0]);
+
 	if (self->pos.x <= x && self->pos.x + taille.width >= x &&
 		self->pos.y <= y && self->pos.y + taille.height >= y)
 		return (1);
 	return (0);
 }
 
-button_t *create_button(int x, int y, enum button btn_type)
+button_t *create_button(int x, int y, enum button type)
 {
-	button_t	*btn = malloc(sizeof(button_t));
+	background_t	*bg = malloc(sizeof(button_t));
 	sfTexture	*tx;
 
-	if (btn == NULL)
+	if (bg == NULL)
 		return (NULL);
-	btn->pos.x = x;
-	btn->pos.y = y;
-	btn->sprite = malloc(sizeof(sfSprite *) * 2);
-	if (btn->sprite == NULL)
+	bg->pos.x = x;
+	bg->pos.y = y;
+	bg->sprite = malloc(sizeof(sfSprite *) * 2);
+	if (bg->sprite == NULL)
 		return (NULL);
-	tx = sfTexture_createFromFile("textures/GREEN.png", NULL);
-	btn->sprite[0] = sfSprite_create();
-	sfSprite_setTexture(btn->sprite[0], tx, sfTrue);
-	btn->draw = &draw_fp;
-	btn->move = &move_fp;
-	btn->collide = &collide_fp;
-	return (btn);
+	tx = sfTexture_createFromFile(btn_tab(type), NULL);
+	bg->sprite[0] = sfSprite_create();
+	sfSprite_setTexture(bg->sprite[0], tx, sfTrue);
+	bg->draw = &draw_fp;
+	bg->move = &move_fp;
+	bg->collide = &collide_fp;
+	return (bg);
 }

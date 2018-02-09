@@ -43,7 +43,7 @@ food_t *create_food(int x, int y, enum food type)
 	food->sprite = malloc(sizeof(sfSprite *) * 2);
 	if (food->sprite == NULL)
 		return (NULL);
-	tx = sfTexture_createFromFile(food_tab(type), NULL);
+	tx = sfTexture_createFromFile(btn_tab(type), NULL);
 	food->sprite[0] = sfSprite_create();
 	sfSprite_setTexture(food->sprite[0], tx, sfTrue);
 	food->draw = &draw_fp;
