@@ -9,7 +9,8 @@
 
 char *food_tab(int type)
 {
-	char	*food_tab[2] = {"textures/Food_Special.png", NULL};
+	char	*food_tab[4] = {"textures/Food_Special.png", "textures/playbutton.png",
+	"textures/1376139933194.jpg", NULL};
 
 	return (food_tab[type]);
 }

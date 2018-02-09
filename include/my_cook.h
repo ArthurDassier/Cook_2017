@@ -28,6 +28,8 @@ typedef struct __entity__ food_t;
 
 enum food {
 	PLATS = 0,
+	BUTTON = 1,
+	BACKGRD = 2,
 };
 
 struct __entity__
