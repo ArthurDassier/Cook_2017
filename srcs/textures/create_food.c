@@ -21,7 +21,7 @@ static int move_fp(food_t *self, int x, int y)
 	return (0);
 }
 
-static int collide_fp(food_t *self, int x, int y, int type)
+static int collide_fp(food_t *self, int x, int y)
 {
 	sfFloatRect	taille = sfSprite_getGlobalBounds(self->sprite[0]);
 

@@ -20,7 +20,7 @@ endif
 
 NAME=	my_cook
 
-SRC_DIR=	$(realpath ./srcs)
+SRC_DIR=	./srcs
 SRC=		$(SRC_DIR)/main.c				\
 			$(SRC_DIR)/init.c			\
 			$(SRC_DIR)/destroy.c			\
