@@ -31,7 +31,7 @@ static int event_handler(struct game *gm)
 
 static void draw_sprite(struct game *gm)
 {
-	struct queue	*tmp = gm->menu;
+	struct queue		*tmp = gm->menu;
 	struct __entity__	*el = NULL;
 
 	while (tmp) {

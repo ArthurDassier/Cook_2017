@@ -33,7 +33,7 @@ enum food {
 
 enum button {
 	PLAY_BUTTON = 0,
-	EXIT_BUTTON = 1,
+	EXIT_BUTTON = 2,
 	INFO_BUTTON = 4
 };
 
