@@ -90,5 +90,5 @@ char *get_next_line(int fd)
 		free(tmp_buf);
 		tmp_buf = create_buf(READ_SIZE + 1);
 	}
-	return ((no > 0 || buf != NULL)? trunk_new_line(&buf, &tmp_no) : NULL);
+	return ((no > 0 || buf != NULL) ? trunk_new_line(&buf, &tmp_no) : NULL);
 }

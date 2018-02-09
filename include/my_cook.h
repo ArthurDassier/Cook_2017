@@ -24,6 +24,11 @@
 #define HEIGHT 1080
 
 typedef struct __entity__ button_t;
+typedef struct __entity__ food_t;
+
+enum food {
+	PLATS = 0,
+};
 
 struct __entity__
 {
@@ -45,7 +50,9 @@ struct game
 struct game *init(void);
 int menu(struct game *);
 void close_wd(struct game *gm);
+char *food_tab(int type);
 
 button_t *create_button (int, int);
+food_t *create_food(int, int, int);
 
 #endif
