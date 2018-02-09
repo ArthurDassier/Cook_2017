@@ -32,15 +32,15 @@ enum food {
 };
 
 enum button {
-	PLAY_BUTTON=0,
-	EXIT_BUTTON=2,
-	INFO_BUTTON=4
+	PLAY_BUTTON = 0,
+	EXIT_BUTTON = 1,
+	INFO_BUTTON = 4
 };
 
 enum background {
-	MENU=0,
-	GAME=2,
-	PAUSE=4
+	MENU = 0,
+	GAME = 2,
+	PAUSE = 4
 };
 
 struct __entity__
