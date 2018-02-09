@@ -9,7 +9,7 @@
 
 static void init_menu(struct game *gm)
 {
-	gm->menu = add_queue(gm->menu, create_background(100, 100, MENU));
+	gm->menu = add_queue(gm->menu, create_background(0, 0, MENU));
 	gm->menu = add_queue(gm->menu, create_button(100, 500, PLAY_BUTTON));
 	gm->menu = add_queue(gm->menu, create_button(500, 500, EXIT_BUTTON));
 	gm->menu = add_queue(gm->menu, create_button(500, 500, INFO_BUTTON));
