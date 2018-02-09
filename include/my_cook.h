@@ -28,19 +28,19 @@ typedef struct __entity__ background_t;
 typedef struct __entity__ food_t;
 
 enum food {
-	PLATS = 0,
+	PLATS = 1
 };
 
 enum button {
-	PLAY_BUTTON=1,
-	EXIT_BUTTON=2,
-	INFO_BUTTON=4
+	PLAY_BUTTON = 1,
+	EXIT_BUTTON = 2,
+	INFO_BUTTON = 4
 };
 
 enum background {
-	MENU=1,
-	GAME=2,
-	PAUSE=4
+	MENU = 1,
+	GAME = 2,
+	PAUSE = 4
 };
 
 struct __entity__
@@ -65,9 +65,11 @@ int menu(struct game *);
 void close_wd(struct game *gm);
 
 char *food_tab(int type);
+char *bckg_tab(int type);
+char *btn_tab(int type);
 
-button_t *create_button(int, int, enum button);
-background_t *create_background(int, int, enum background);
-food_t *create_food(int, int, enum food);
+button_t *create_button(int, int, enum button type);
+background_t *create_background(int, int, enum background type);
+food_t *create_food(int, int, enum food type);
 
 #endif
