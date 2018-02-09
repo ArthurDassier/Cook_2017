@@ -43,7 +43,9 @@ struct game
 };
 
 struct game *init(void);
-button_t *create_button (int, int);
+int menu(struct game *);
 void close_wd(struct game *gm);
+
+button_t *create_button (int, int);
 
 #endif

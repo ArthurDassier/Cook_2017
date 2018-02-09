@@ -25,7 +25,8 @@ SRC=		$(SRC_DIR)/main.c				\
 			$(SRC_DIR)/init.c			\
 			$(SRC_DIR)/destroy.c			\
 			$(SRC_DIR)/close_wd.c			\
-			$(SRC_DIR)/menu/create_button.c
+			$(SRC_DIR)/menu/create_button.c	\
+			$(SRC_DIR)/menu/menu.c
 
 
 OBJ=		$(SRC:.c=.o)

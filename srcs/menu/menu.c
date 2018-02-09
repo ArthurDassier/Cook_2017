@@ -7,6 +7,13 @@
 
 #include "my_cook.h"
 
+static void init_menu(struct game *gm)
+{
+	gm->menu = add_queue(gm->menu, create_button(100, 100));
+	gm->menu = add_queue(gm->menu, create_button(100, 500));
+	gm->menu = add_queue(gm->menu, create_button(500, 500));
+}
+
 static int event_handler(struct game *gm)
 {
 	sfEvent	event;
@@ -23,18 +30,26 @@ static int event_handler(struct game *gm)
 
 static void draw_sprite(struct game *gm)
 {
+	struct queue	*tmp = gm->menu;
+	struct __entity__	*el = NULL;
 
+	while (tmp) {
+		el = tmp->token;
+		el->draw(el, gm->wd);
+		tmp = tmp->next;
+	}
 }
 
 int menu(struct game *gm)
 {
+	init_menu(gm);
 	while (sfRenderWindow_isOpen(gm->wd)) {
 		if (event_handler(gm) != 0)
 			break;
 		draw_sprite(gm);
 		sfRenderWindow_display(gm->wd);
 		sfSleep(gm->tm);
-		sfRenderWindow_clear(gm->win, sfBlack);
+		sfRenderWindow_clear(gm->wd, sfBlack);
 	}
 	return (0);
 }
