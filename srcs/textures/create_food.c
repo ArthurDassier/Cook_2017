@@ -31,7 +31,7 @@ static int collide_fp(food_t *self, int x, int y)
 	return (0);
 }
 
-food_t *create_food(int x, int y, int type)
+food_t *create_food(int x, int y, enum food type)
 {
 	food_t		*food = malloc(sizeof(food_t));
 	sfTexture	*tx;

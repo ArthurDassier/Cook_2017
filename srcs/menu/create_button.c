@@ -30,7 +30,7 @@ static int collide_fp(button_t *self, int x, int y)
 	return (0);
 }
 
-button_t *create_button(int x, int y)
+button_t *create_button(int x, int y, enum button btn_type)
 {
 	button_t	*btn = malloc(sizeof(button_t));
 	sfTexture	*tx;
