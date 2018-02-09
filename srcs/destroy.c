@@ -6,3 +6,8 @@
 */
 
 #include "my_cook.h"
+
+void modif(/* arguments */)
+{
+	/* code */
+}
