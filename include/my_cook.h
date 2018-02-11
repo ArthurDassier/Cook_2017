@@ -62,6 +62,7 @@ struct game
 
 struct game *init(void);
 int menu(struct game *);
+int detection(struct game *gm);
 void close_wd(struct game *gm);
 
 char *food_tab(int type);

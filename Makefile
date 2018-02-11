@@ -27,7 +27,8 @@ SRC=		$(SRC_DIR)/main.c				\
 			$(SRC_DIR)/close_wd.c			\
 			$(SRC_DIR)/menu/create_button.c		\
 			$(SRC_DIR)/menu/menu.c			\
-			$(SRC_DIR)/food/create_food.c	\
+			$(SRC_DIR)/menu/detection.c		\
+			$(SRC_DIR)/food/create_food.c		\
 			$(SRC_DIR)/textures/create_background.c	\
 			$(SRC_DIR)/textures/tab.c
 
