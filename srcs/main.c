@@ -7,10 +7,13 @@
 
 #include "my_cook.h"
 
-int main(int ac, char **av)
+int main(int ac, char **av, char **env)
 {
-	struct game	*gm = init();
+	struct game	*gm = NULL;
 
+	if (env[0] == NULL)
+		return (84);
+	gm = init();
 	if (gm == NULL)
 		return (84);
 	menu(gm);
