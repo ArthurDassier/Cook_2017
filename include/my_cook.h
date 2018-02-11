@@ -28,9 +28,9 @@ typedef struct __entity__ background_t;
 typedef struct __entity__ food_t;
 
 enum food {
-	RED_BUG = 1,
-	BLUE_BUG = 2,
-	GRILLED_BUG = 4
+	GREEN_BUG = 0,
+	BLUE_BUG = 1,
+	GRILLED_BUG = 2
 };
 
 enum button {
@@ -72,6 +72,8 @@ void close_wd(struct game *gm);
 char *food_tab(int type);
 char *bckg_tab(int type);
 char *btn_tab(int type);
+
+sfIntRect rect_bug(enum food type);
 
 button_t *create_button(int, int, enum button type);
 background_t *create_background(int, int, enum background type);

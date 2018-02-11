@@ -34,11 +34,14 @@ static int collide_fp(food_t *self, int x, int y)
 static food_t *set_texture(food_t *food, enum food type)
 {
 	sfTexture	*tx;
-	if (!(type & RED_BUG) && !(type & BLUE_BUG))
-		return (NULL);
+
 	tx = sfTexture_createFromFile(food_tab(type), NULL);
 	food->sprite[0] = sfSprite_create();
+	food->sprite[1] = sfSprite_create();
 	sfSprite_setTexture(food->sprite[0], tx, sfTrue);
+	sfSprite_setTexture(food->sprite[1], tx, sfTrue);
+	sfSprite_setTextureRect(food->sprite[0], rect_bug(type));
+	sfSprite_setTextureRect(food->sprite[1], rect_bug(GRILLED_BUG));
 	return (food);
 }
 

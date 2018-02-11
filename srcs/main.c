@@ -9,6 +9,8 @@
 
 int main(int ac, char **av, char **env)
 {
+	(void) ac;
+	(void) av;
 	struct game	*gm = NULL;
 
 	if (env[0] == NULL)
