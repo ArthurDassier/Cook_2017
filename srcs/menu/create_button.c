@@ -48,5 +48,7 @@ button_t *create_button(int x, int y, enum button btn_type)
 	btn->draw = &draw_fp;
 	btn->move = &move_fp;
 	btn->collide = &collide_fp;
+	btn->ch = 'B';
+	btn->type = btn_type;
 	return (btn);
 }

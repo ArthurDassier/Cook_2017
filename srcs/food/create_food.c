@@ -31,10 +31,20 @@ static int collide_fp(food_t *self, int x, int y)
 	return (0);
 }
 
+static food_t *set_texture(food_t *food, enum food type)
+{
+	sfTexture	*tx;
+	if (!(type & RED_BUG) && !(type & BLUE_BUG))
+		return (NULL);
+	tx = sfTexture_createFromFile(food_tab(type), NULL);
+	food->sprite[0] = sfSprite_create();
+	sfSprite_setTexture(food->sprite[0], tx, sfTrue);
+	return (food);
+}
+
 food_t *create_food(int x, int y, enum food type)
 {
 	food_t		*food = malloc(sizeof(food_t));
-	sfTexture	*tx;
 
 	if (food == NULL)
 		return (NULL);
@@ -43,11 +53,9 @@ food_t *create_food(int x, int y, enum food type)
 	food->sprite = malloc(sizeof(sfSprite *) * 2);
 	if (food->sprite == NULL)
 		return (NULL);
-	tx = sfTexture_createFromFile(food_tab(type), NULL);
-	food->sprite[0] = sfSprite_create();
-	sfSprite_setTexture(food->sprite[0], tx, sfTrue);
 	food->draw = &draw_fp;
 	food->move = &move_fp;
 	food->collide = &collide_fp;
+	food = set_texture(food, type);
 	return (food);
 }

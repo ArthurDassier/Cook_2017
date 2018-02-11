@@ -12,6 +12,8 @@ static void init_menu(struct game *gm)
 	gm->menu = add_queue(gm->menu, create_background(0, 0, MENU));
 	gm->menu = add_queue(gm->menu, create_button(700, 300, PLAY_BUTTON));
 	gm->menu = add_queue(gm->menu, create_button(700, 600, EXIT_BUTTON));
+	gm->menu = add_queue(gm->menu, create_food(0, 0, RED_BUG));
+	printf("%p\n", create_food(0, 0, 0));
 //	gm->menu = add_queue(gm->menu, create_button(500, 500, INFO_BUTTON));
 }
 
