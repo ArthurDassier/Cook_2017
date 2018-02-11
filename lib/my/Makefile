@@ -12,12 +12,12 @@ FLAGS=	-Wall -Wextra -I./include
 
 NAME=	libmy.a
 
-INCLUDE_DIR=	$(realpath ./include)
+INCLUDE_DIR=	./include
 INCLUDE=		$(INCLUDE_DIR)/my.h                            \
 				$(INCLUDE_DIR)/get_next_line.h                 \
 				$(INCLUDE_DIR)/my_printf.h
 
-SRC_DIR=	$(realpath ./src)
+SRC_DIR=	./src
 SRC=		$(SRC_DIR)/integers/number_len.c                   \
 			$(SRC_DIR)/integers/get_digit.c                    \
 			$(SRC_DIR)/integers/my_swap.c                      \
@@ -63,11 +63,11 @@ $(NAME):	$(OBJ) $(INCLUDE)
 	$(CC) $(FLAGS) -o $@ -c $<
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean:		clean
-	rm -rf $(NAME)
-	rm -rf ../$(NAME)
+	@rm -rf $(NAME)
+	@rm -rf ../$(NAME)
 
 re: fclean all
 

@@ -12,10 +12,10 @@ FLAGS=	-Wall -Wextra -I./include
 
 NAME=	libmy_getopt.a
 
-INCLUDE_DIR=	$(realpath ./include)
+INCLUDE_DIR=	./include
 INCLUDE=		$(INCLUDE_DIR)/my_getopt.h
 
-SRC_DIR=	$(realpath ./src)
+SRC_DIR=	./src
 SRC=		$(SRC_DIR)/my_getopt.c                              \
 			$(SRC_DIR)/scan.c                                   \
 			$(SRC_DIR)/flag.c                                   \
@@ -34,11 +34,11 @@ $(NAME):	$(OBJ) $(INCLUDE)
 	$(CC) $(FLAGS) -o $@ -c $<
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean:		clean
-	rm -rf $(NAME)
-	rm -rf ../$(NAME)
+	@rm -rf $(NAME)
+	@rm -rf ../$(NAME)
 
 re: fclean all
 
