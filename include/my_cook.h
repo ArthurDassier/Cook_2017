@@ -28,7 +28,9 @@ typedef struct __entity__ background_t;
 typedef struct __entity__ food_t;
 
 enum food {
-	PLATS = 0
+	RED_BUG = 1,
+	BLUE_BUG = 2,
+	GRILLED_BUG = 4
 };
 
 enum button {
@@ -47,6 +49,8 @@ struct __entity__
 {
 	sfVector2f	pos;
 	sfSprite	**sprite;
+	char		ch;
+	int		type;
 	int		(*draw)(struct __entity__ *, sfRenderWindow *);
 	int		(*move)(struct __entity__ *, int, int);
 	int		(*collide)(struct __entity__ *, int, int);

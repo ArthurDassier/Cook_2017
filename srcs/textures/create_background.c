@@ -49,5 +49,7 @@ background_t *create_background(int x, int y, enum background type)
 	bg->draw = &draw_fp;
 	bg->move = &move_fp;
 	bg->collide = &collide_fp;
+	bg->ch = 'D';
+	bg->type = type;
 	return (bg);
 }
