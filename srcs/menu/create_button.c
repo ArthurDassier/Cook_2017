@@ -42,7 +42,7 @@ button_t *create_button(int x, int y, enum button btn_type)
 	btn->sprite = malloc(sizeof(sfSprite *) * 2);
 	if (btn->sprite == NULL)
 		return (NULL);
-	tx = sfTexture_createFromFile("textures/GREEN.png", NULL);
+	tx = sfTexture_createFromFile(btn_tab(btn_type), NULL);
 	btn->sprite[0] = sfSprite_create();
 	sfSprite_setTexture(btn->sprite[0], tx, sfTrue);
 	btn->draw = &draw_fp;
