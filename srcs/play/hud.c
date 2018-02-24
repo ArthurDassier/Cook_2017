@@ -18,8 +18,9 @@ static int event_handler(struct game *gm)
 	int	no = -1;
 
 	while (sfRenderWindow_pollEvent(gm->wd, &event)) {
-		if (event.type == sfEvtMouseButtonPressed)
-			return (0);
+		if (event.type == sfEvtKeyPressed &&
+				event.key.code == sfKeyEscape)
+			return (1);
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
 	}
