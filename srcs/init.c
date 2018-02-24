@@ -18,5 +18,8 @@ struct game *init(void)
 	gm->video_md.bitsPerPixel = 32;
 	gm->tm.microseconds = 20000;
 	gm->wd = sfRenderWindow_create(gm->video_md, WIN, sfDefaultStyle, NULL);
+	gm->status = 1;
+	gm->menu = NULL;
+	gm->game = NULL;
 	return (gm);
 }

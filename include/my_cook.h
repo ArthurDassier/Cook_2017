@@ -59,6 +59,7 @@ struct __entity__
 struct game
 {
 	struct queue	*menu;
+	struct queue	*game;
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
@@ -70,7 +71,7 @@ int menu(struct game *);
 int detection(struct game *gm);
 void close_wd(struct game *gm);
 
-void launch(struct game *gm);
+int launch(struct game *gm);
 
 char *food_tab(int type);
 char *bckg_tab(int type);

@@ -14,15 +14,12 @@ int detection(struct game *gm)
 
 	while (tmp) {
 		el = tmp->token;
-		if (el->ch == 'B' && el->type == EXIT_BUTTON &&
+		if (el->ch == 'B'&&
 		(el->collide(el, sfMouse_getPositionRenderWindow(gm->wd).x,
-			sfMouse_getPositionRenderWindow(gm->wd).y) == 1))
-			sfRenderWindow_close(gm->wd);
-		if (el->ch == 'B' && el->type == PLAY_BUTTON &&
-		(el->collide(el, sfMouse_getPositionRenderWindow(gm->wd).x,
-			sfMouse_getPositionRenderWindow(gm->wd).y) == 1))
-			gm->status = 1;
+			sfMouse_getPositionRenderWindow(gm->wd).y) == 1)) {
+			return (el->type);
+		}
 		tmp = tmp->next;
 	}
-	return (0);
+	return (-1);
 }
