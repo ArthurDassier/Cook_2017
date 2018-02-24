@@ -24,6 +24,7 @@ static int move_fp(button_t *self, int x, int y)
 static int collide_fp(button_t *self, int x, int y)
 {
 	sfFloatRect	taille = sfSprite_getGlobalBounds(self->sprite[0]);
+
 	if (self->pos.x <= x && self->pos.x + taille.width >= x &&
 		self->pos.y <= y && self->pos.y + taille.height >= y)
 		return (1);

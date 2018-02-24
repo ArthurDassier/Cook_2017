@@ -17,7 +17,11 @@ int detection(struct game *gm)
 		if (el->ch == 'B' && el->type == EXIT_BUTTON &&
 		(el->collide(el, sfMouse_getPositionRenderWindow(gm->wd).x,
 			sfMouse_getPositionRenderWindow(gm->wd).y) == 1))
-			return (1);
+			sfRenderWindow_close(gm->wd);
+		if (el->ch == 'B' && el->type == PLAY_BUTTON &&
+		(el->collide(el, sfMouse_getPositionRenderWindow(gm->wd).x,
+			sfMouse_getPositionRenderWindow(gm->wd).y) == 1))
+			gm->status = 1;
 		tmp = tmp->next;
 	}
 	return (0);

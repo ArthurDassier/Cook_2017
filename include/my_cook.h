@@ -62,12 +62,15 @@ struct game
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
+	int		status;
 };
 
 struct game *init(void);
 int menu(struct game *);
 int detection(struct game *gm);
 void close_wd(struct game *gm);
+
+void launch(struct game *gm);
 
 char *food_tab(int type);
 char *bckg_tab(int type);
