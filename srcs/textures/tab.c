@@ -7,6 +7,14 @@
 
 #include "my_cook.h"
 
+char *customer_tab(int type)
+{
+	char	*customer_tab[3] = {"textures/FEMME.png",
+		"textures/HOMME1.png", NULL};
+
+	return (customer_tab[type]);
+}
+
 char *food_tab(int type)
 {
 	char	*food_tab[4] = {"textures/BUGS.png", "textures/BUGS.png",
