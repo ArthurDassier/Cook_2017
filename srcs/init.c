@@ -20,6 +20,7 @@ struct game *init(void)
 	gm->wd = sfRenderWindow_create(gm->video_md, WIN, sfDefaultStyle, NULL);
 	gm->status = 1;
 	gm->menu = NULL;
+	gm->user = NULL;
 	gm->game = NULL;
 	return (gm);
 }

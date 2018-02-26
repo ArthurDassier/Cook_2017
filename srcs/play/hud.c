@@ -10,21 +10,32 @@
 static void init_game(struct game *gm)
 {
 	gm->game = add_queue(gm->game, create_background(0, 0, GAME));
+	gm->game = add_queue(gm->game, create_food(200, 650, GREEN_BUG));
+	gm->game = add_queue(gm->game, create_food(400, 650, BLUE_BUG));
 }
 
 static int event_handler(struct game *gm)
 {
 	sfEvent	event;
-	int	no = -1;
+	int	no = 0;
 
 	while (sfRenderWindow_pollEvent(gm->wd, &event)) {
 		if (event.type == sfEvtKeyPressed &&
 				event.key.code == sfKeyEscape)
-			return (1);
+			return (-1);
+		if (event.type == sfEvtKeyPressed &&
+				event.key.code == sfKeyG)
+			return (GREEN_BUG);
+		if (event.type == sfEvtKeyPressed &&
+				event.key.code == sfKeyB)
+			return (BLUE_BUG);
+		if (event.type == sfEvtKeyPressed &&
+				event.key.code == sfSpace)
+			return (10);
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
 	}
-	return (no);
+	return (-2);
 }
 
 static void draw_sprite(struct game *gm)
@@ -37,6 +48,13 @@ static void draw_sprite(struct game *gm)
 		el->draw(el, gm->wd);
 		tmp = tmp->next;
 	}
+	tmp = gm->user;
+	while (tmp) {
+		el = tmp->token;
+		el->draw(el, gm->wd);
+		tmp = tmp->next;
+	}
+	sfRenderWindow_drawText(gm->win, gm->score_text, NULL);
 }
 
 int launch(struct game *gm)
@@ -46,10 +64,16 @@ int launch(struct game *gm)
 	if (gm->game == NULL)
 		init_game(gm);
 	while (sfRenderWindow_isOpen(gm->wd)) {
-		if ((no = event_handler(gm)) != -1)
+		if ((no = event_handler(gm)) == -1)
 			break;
+		if (no == 10)
+			gm->score += 10;
+		if (no != -2)
+			gm->user = add_queue(gm->user, create_food(800, 650,
+						no));
 		draw_sprite(gm);
 		sfRenderWindow_display(gm->wd);
+		sfText_setString(gm->score_text, my_itoa(gm->score));
 		sfSleep(gm->tm);
 		sfRenderWindow_clear(gm->wd, sfBlack);
 	}

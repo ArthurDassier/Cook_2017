@@ -60,6 +60,7 @@ struct game
 {
 	struct queue	*menu;
 	struct queue	*game;
+	struct queue	*user;
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
