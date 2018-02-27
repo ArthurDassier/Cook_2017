@@ -32,7 +32,6 @@ SRC=		$(SRC_DIR)/main.c				\
 			$(SRC_DIR)/food/create_food.c		\
 			$(SRC_DIR)/food/rect_food.c		\
 			$(SRC_DIR)/food/food.c			\
-			$(SRC_DIR)/food/chain_food.c		\
 			$(SRC_DIR)/textures/create_background.c	\
 			$(SRC_DIR)/textures/create_customer.c	\
 			$(SRC_DIR)/textures/tab.c		\
