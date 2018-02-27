@@ -7,10 +7,20 @@
 
 #include "my_cook.h"
 
+char *customer_tab(int type)
+{
+	char	*customer_tab[3] = {"textures/FEMME.png",
+		"textures/HOMME1.png", NULL};
+
+	return (customer_tab[type]);
+}
+
 char *food_tab(int type)
 {
-	char	*food_tab[4] = {"textures/BUGS.png", "textures/BUGS.png",
-		"textures/BUGS.png", NULL};
+	char	*food_tab[8] = {"textures/BUGS.png", "textures/BUGS.png",
+		"textures/BUGS.png", "textures/SPIDERS.png",
+		"textures/SPIDERS.png", "textures/WORM.png",
+		"textures/WORM.png", NULL};
 
 	if (type < 0 || type >= 5)
 		return (NULL);
@@ -19,8 +29,8 @@ char *food_tab(int type)
 
 char *bckg_tab(int type)
 {
-	char	*bckg_tab[3] = {"textures/1376139933194.png",
-		"textures/HUD.png", NULL};
+	char	*bckg_tab[4] = {"textures/1376139933194.png",
+		"textures/HUD.png", "textures/help_menu.png", NULL};
 
 	return (bckg_tab[type]);
 }

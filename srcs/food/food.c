@@ -17,7 +17,7 @@ static struct queue *grilled_bug(void)
 struct queue *generate_food(void)
 {
 	struct queue	*tmp = NULL;
-	struct queue	*(*tab[])(void) = { &grilled_bug, NULL };
+	struct queue	*(*tab[])(void) = {&grilled_bug, NULL};
 	int		no = 0;
 
 	tmp = tab[no]();

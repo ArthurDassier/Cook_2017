@@ -72,6 +72,7 @@ int launch(struct game *gm)
 			gm->user = add_queue(gm->user, create_food(800, 650,
 						no));
 		draw_sprite(gm);
+	//	draw_customer();
 		sfRenderWindow_display(gm->wd);
 		sfText_setString(gm->score_text, my_itoa(gm->score));
 		sfSleep(gm->tm);

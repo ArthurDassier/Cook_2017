@@ -1,18 +1,16 @@
 /*
 ** EPITECH PROJECT, 2017
-** menu.c
+** infos.c
 ** File description:
-** <..>
+** Arthur
 */
 
 #include "my_cook.h"
 
-static void init_menu(struct game *gm)
+static void init_game(struct game *gm)
 {
-	gm->menu = add_queue(gm->menu, create_background(0, 0, MENU));
-	gm->menu = add_queue(gm->menu, create_button(680, 300, PLAY_BUTTON));
-	gm->menu = add_queue(gm->menu, create_button(300, 600, EXIT_BUTTON));
-	gm->menu = add_queue(gm->menu, create_button(1000, 600, INFO_BUTTON));
+	gm->menu = add_queue(gm->menu, create_background(0, 0, INFOS));
+	gm->menu = add_queue(gm->menu, create_button(680, 150, INFO_BUTTON));
 }
 
 static int event_handler(struct game *gm)
@@ -21,8 +19,9 @@ static int event_handler(struct game *gm)
 	int	no = -1;
 
 	while (sfRenderWindow_pollEvent(gm->wd, &event)) {
-		if (event.type == sfEvtMouseButtonPressed)
-			no = detection(gm);
+		if (event.type == sfEvtKeyPressed &&
+				event.key.code == sfKeyEscape)
+			return (1);
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
 	}
@@ -41,12 +40,12 @@ static void draw_sprite(struct game *gm)
 	}
 }
 
-int menu(struct game *gm)
+int infos(struct game *gm)
 {
 	int	no = 0;
 
-	if (gm->menu == NULL)
-		init_menu(gm);
+	if (gm->game == NULL)
+		init_game(gm);
 	while (sfRenderWindow_isOpen(gm->wd)) {
 		if ((no = event_handler(gm)) != -1)
 			break;
