@@ -22,7 +22,7 @@ char *food_tab(int type)
 		"textures/SPIDERS.png", "textures/WORM.png",
 		"textures/WORM.png", NULL};
 
-	if (type < 0 || type >= 5)
+	if (type < 0 || type >= 7)
 		return (NULL);
 	return (food_tab[type]);
 }
