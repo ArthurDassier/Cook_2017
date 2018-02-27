@@ -21,6 +21,8 @@ struct game *init(void)
 	gm->status = 1;
 	gm->menu = NULL;
 	gm->user = NULL;
+	gm->info = NULL;
 	gm->game = NULL;
+	gm->score = 0;
 	return (gm);
 }

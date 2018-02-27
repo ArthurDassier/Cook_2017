@@ -9,8 +9,8 @@
 
 static void init_game(struct game *gm)
 {
-	gm->menu = add_queue(gm->menu, create_background(0, 0, INFOS));
-	gm->menu = add_queue(gm->menu, create_button(680, 150, INFO_BUTTON));
+	gm->info = add_queue(gm->info, create_background(0, 0, INFOS));
+	gm->info = add_queue(gm->info, create_button(680, 150, INFO_BUTTON));
 }
 
 static int event_handler(struct game *gm)
@@ -20,8 +20,9 @@ static int event_handler(struct game *gm)
 
 	while (sfRenderWindow_pollEvent(gm->wd, &event)) {
 		if (event.type == sfEvtKeyPressed &&
-				event.key.code == sfKeyEscape)
+				event.key.code == sfKeyEscape) {
 			return (1);
+		}
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
 	}
@@ -30,7 +31,7 @@ static int event_handler(struct game *gm)
 
 static void draw_sprite(struct game *gm)
 {
-	struct queue		*tmp = gm->menu;
+	struct queue		*tmp = gm->info;
 	struct __entity__	*el = NULL;
 
 	while (tmp) {
@@ -44,7 +45,7 @@ int infos(struct game *gm)
 {
 	int	no = 0;
 
-	if (gm->game == NULL)
+	if (gm->info == NULL)
 		init_game(gm);
 	while (sfRenderWindow_isOpen(gm->wd)) {
 		if ((no = event_handler(gm)) != -1)

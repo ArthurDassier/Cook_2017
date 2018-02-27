@@ -72,10 +72,13 @@ struct game
 	struct queue	*menu;
 	struct queue	*game;
 	struct queue	*user;
+	struct queue	*info;
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
+	sfText		*score_text;
 	int		status;
+	int		score;
 };
 
 struct game *init(void);
