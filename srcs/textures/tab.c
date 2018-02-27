@@ -17,8 +17,10 @@ char *customer_tab(int type)
 
 char *food_tab(int type)
 {
-	char	*food_tab[4] = {"textures/BUGS.png", "textures/BUGS.png",
-		"textures/BUGS.png", NULL};
+	char	*food_tab[8] = {"textures/BUGS.png", "textures/BUGS.png",
+		"textures/BUGS.png", "textures/SPIDERS.png",
+		"textures/SPIDERS.png", "textures/WORM.png",
+		"textures/WORM.png", NULL};
 
 	if (type < 0 || type >= 5)
 		return (NULL);

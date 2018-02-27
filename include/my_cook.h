@@ -31,7 +31,11 @@ typedef struct __entity__ food_t;
 enum food {
 	GREEN_BUG = 0,
 	BLUE_BUG = 1,
-	GRILLED_BUG = 2
+	GRILLED_BUG = 2,
+	RAW_SPIDER = 3,
+	COOKED_SPIDER = 4
+	RAW_WORM = 5,
+	COOKED_WORM = 6
 };
 
 enum customer {
