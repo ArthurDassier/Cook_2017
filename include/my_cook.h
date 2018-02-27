@@ -95,6 +95,9 @@ char *btn_tab(int type);
 
 sfIntRect rect_bug(enum food type);
 
+struct queue *spider_cooked(int x, int y);
+struct queue *spider_bug(int x, int y);
+
 button_t *create_button(int, int, enum button type);
 background_t *create_background(int, int, enum background type);
 food_t *create_food(int, int, enum food type);

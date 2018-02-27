@@ -45,12 +45,13 @@ static struct queue *worm(int x, int y)
 struct queue *generate_food(int x, int y)
 {
 	struct queue	*tmp = NULL;
-	struct queue	*(*tab[5])(int x, int y) = {&grilled_bug,
-		&spider_and_worm, &bug_and_worm, &worm, NULL};
+	struct queue	*(*tab[7])(int x, int y) = {&grilled_bug,
+		&spider_and_worm, &bug_and_worm, &worm, &spider_cooked,
+		&spider_bug, NULL};
 	int		no = 0;
 
 	srand(time(NULL));
-	no = rand() % 3;
+	no = rand() % 5;
 	tmp = tab[no](x, y);
 	if (tmp == NULL)
 		return (NULL);

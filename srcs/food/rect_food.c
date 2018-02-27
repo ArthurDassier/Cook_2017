@@ -29,9 +29,9 @@ sfIntRect rect_bug(enum food type)
 	if (type == GRILLED_BUG)
 		rect = position_pixels(100, 243, 0, 100);
 	if (type == RAW_SPIDER)
-		rect = position_pixels(50, 0, 0, 50);
-	if (type == COOKED_SPIDER)
 		rect = position_pixels(50, 0, 50, 50);
+	if (type == COOKED_SPIDER)
+		rect = position_pixels(50, 0, 0, 50);
 	if (type == RAW_WORM)
 		rect = position_pixels(100, 0, 0, 100);
 	if (type == COOKED_WORM)

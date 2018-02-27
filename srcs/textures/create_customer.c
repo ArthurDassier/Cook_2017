@@ -38,7 +38,6 @@ static customer_t *set_texture(customer_t *customer, enum customer type)
 	tx = sfTexture_createFromFile(customer_tab(type), NULL);
 	customer->sprite[0] = sfSprite_create();
 	sfSprite_setTexture(customer->sprite[0], tx, sfTrue);
-//	sfSprite_setTextureRect(customer->sprite[0], rect_bug(type));
 	return (customer);
 }
 
