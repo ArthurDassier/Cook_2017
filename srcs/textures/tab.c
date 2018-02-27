@@ -29,8 +29,8 @@ char *food_tab(int type)
 
 char *bckg_tab(int type)
 {
-	char	*bckg_tab[3] = {"textures/1376139933194.png",
-		"textures/HUD.png", NULL};
+	char	*bckg_tab[4] = {"textures/1376139933194.png",
+		"textures/HUD.png", "textures/help_menu.png", NULL};
 
 	return (bckg_tab[type]);
 }

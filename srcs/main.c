@@ -26,7 +26,7 @@ int main(int ac, char **av, char **env)
 		if (no == EXIT_BUTTON)
 			break;
 		if (no == INFO_BUTTON)
-			continue;
+			infos(gm);
 	}
 	return (0);
 }

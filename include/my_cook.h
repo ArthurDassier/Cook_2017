@@ -33,7 +33,7 @@ enum food {
 	BLUE_BUG = 1,
 	GRILLED_BUG = 2,
 	RAW_SPIDER = 3,
-	COOKED_SPIDER = 4
+	COOKED_SPIDER = 4,
 	RAW_WORM = 5,
 	COOKED_WORM = 6
 };
@@ -52,7 +52,8 @@ enum button {
 enum background {
 	MENU = 0,
 	GAME = 1,
-	PAUSE = 2
+	INFOS = 2,
+	PAUSE = 3
 };
 
 struct __entity__
@@ -80,8 +81,8 @@ struct game *init(void);
 int menu(struct game *);
 int detection(struct game *gm);
 void close_wd(struct game *gm);
-
 int launch(struct game *gm);
+int infos(struct game *gm);
 
 char *food_tab(int type);
 char *bckg_tab(int type);
