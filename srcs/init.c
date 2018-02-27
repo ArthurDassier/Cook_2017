@@ -7,6 +7,19 @@
 
 #include "my_cook.h"
 
+static void set_text(struct game *gm)
+{
+	sfFont		*fnt = sfFont_createFromFile("./fonts/arial.ttf");
+	sfVector2f	pos;
+
+	pos.x = 0;
+	pos.y = 0;
+	gm->score_text = sfText_create();
+	sfText_setFont(gm->score_text, fnt);
+	sfText_setPosition(gm->score_text, pos);
+	sfText_setString(gm->score_text, "0");
+}
+
 struct game *init(void)
 {
 	struct game	*gm = malloc(sizeof(struct game));
@@ -24,5 +37,6 @@ struct game *init(void)
 	gm->info = NULL;
 	gm->game = NULL;
 	gm->score = 0;
+	set_text(gm);
 	return (gm);
 }

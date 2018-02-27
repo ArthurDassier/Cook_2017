@@ -76,9 +76,9 @@ struct game
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
+	int		score;
 	sfText		*score_text;
 	int		status;
-	int		score;
 };
 
 struct game *init(void);

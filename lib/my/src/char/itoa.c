@@ -13,7 +13,7 @@ char *my_itoa(int no)
 	int	i = 0;
 
 	while (i < number_len(no)) {
-		buf[i] = get_digit(no, number_len(no) - (i + 1)) + '0';
+		buf[i] = get_digit(no, i) + '0';
 		++i;
 	}
 	buf[i] = '\0';

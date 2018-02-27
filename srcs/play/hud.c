@@ -67,7 +67,7 @@ int launch(struct game *gm)
 			break;
 		if (no == 10)
 			gm->score += 10;
-		if (no != -2)
+		else  if (no != -2)
 			gm->user = add_queue(gm->user, create_food(800, 650,
 						no));
 		draw_sprite(gm);
