@@ -46,6 +46,7 @@ struct queue *generate_food(void)
 	struct queue	*tmp = NULL;
 	struct queue	*(*tab[5])(void) = {&grilled_bug, &spider_and_worm,
 		 			&bug_and_worm, &worm, NULL};
+	int		no = 0;
 
 	srand(time(NULL));
 	no = rand() % 3;
