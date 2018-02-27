@@ -4,3 +4,8 @@
 ** File description:
 ** Arthur
 */
+
+void draw_customer(void)
+{
+	
+}

@@ -49,6 +49,7 @@ int launch(struct game *gm)
 		if ((no = event_handler(gm)) != -1)
 			break;
 		draw_sprite(gm);
+	//	draw_customer();
 		sfRenderWindow_display(gm->wd);
 		sfSleep(gm->tm);
 		sfRenderWindow_clear(gm->wd, sfBlack);
