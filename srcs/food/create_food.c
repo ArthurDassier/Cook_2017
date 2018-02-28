@@ -41,7 +41,7 @@ static food_t *set_texture(food_t *food, enum food type)
 	sfSprite_setTexture(food->sprite[0], tx, sfTrue);
 	sfSprite_setTexture(food->sprite[1], tx, sfTrue);
 	sfSprite_setTextureRect(food->sprite[0], rect_bug(type));
-	sfSprite_setTextureRect(food->sprite[1], rect_bug(GRILLED_BUG));
+	sfSprite_setTextureRect(food->sprite[1], rect_bug(type + 1));
 	return (food);
 }
 

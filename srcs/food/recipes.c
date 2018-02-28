@@ -20,6 +20,6 @@ struct queue *spider_bug(int x, int y)
 	struct queue	*tmp = NULL;
 
 	add_queue(tmp, create_food(x, y, COOKED_SPIDER));
-	add_queue(tmp, create_food(x, y, GRILLED_BUG));
+	add_queue(tmp, create_food(x, y, GRILLED_BUG_B));
 	return (tmp);
 }
