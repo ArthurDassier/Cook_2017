@@ -16,6 +16,22 @@ static void init_game(struct game *gm)
 	gm->game = add_queue(gm->game, create_food(300, 750, RAW_WORM));
 }
 
+static int test(sfEvent event)
+{
+	switch (event.key.code) {
+		case sfKeyG:
+			return (GREEN_BUG);
+		case sfKeyB:
+			return (BLUE_BUG);
+		case sfKeyS:
+			return (RAW_SPIDER);
+		case sfKeyW:
+			return (RAW_WORM);
+		default:
+			return (-2);
+	}
+}
+
 static int event_handler(struct game *gm)
 {
 	sfEvent	event;
@@ -25,16 +41,12 @@ static int event_handler(struct game *gm)
 				event.key.code == sfKeyEscape)
 			return (-1);
 		if (event.type == sfEvtKeyPressed &&
-				event.key.code == sfKeyG)
-			return (GREEN_BUG);
-		if (event.type == sfEvtKeyPressed &&
-				event.key.code == sfKeyB)
-			return (BLUE_BUG);
-		if (event.type == sfEvtKeyPressed &&
 				event.key.code == sfKeySpace)
 			return (10);
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
+		if (event.type == sfEvtKeyPressed)
+			return (test(event));
 	}
 	return (-2);
 }
