@@ -74,6 +74,7 @@ struct game
 	struct queue	*game;
 	struct queue	*user;
 	struct queue	*info;
+	struct queue	*pause;
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
@@ -88,6 +89,7 @@ int detection(struct game *gm);
 void close_wd(struct game *gm);
 int launch(struct game *gm);
 int infos(struct game *gm);
+int pause_game(struct game *gm);
 
 char *food_tab(int type);
 char *bckg_tab(int type);

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2017
-** infos.c
+** pauses.c
 ** File description:
 ** Arthur
 */
@@ -9,9 +9,11 @@
 
 static void init_game(struct game *gm)
 {
-	gm->info = add_queue(gm->info, create_background(0, 0, MENU));
-	gm->info = add_queue(gm->info, create_background(674, 411, INFOS));
-	gm->info = add_queue(gm->info, create_button(680, 150, INFO_BUTTON));
+	gm->pause = add_queue(gm->pause, create_background(0, 0, MENU));
+	gm->pause = add_queue(gm->pause, create_background(674, 200, PAUSE));
+	gm->pause = add_queue(gm->pause, create_button(680, 300, PLAY_BUTTON));
+	gm->pause = add_queue(gm->pause, create_button(300, 600, EXIT_BUTTON));
+	gm->pause = add_queue(gm->pause, create_button(1000, 600, INFO_BUTTON));
 }
 
 static int event_handler(struct game *gm)
@@ -20,10 +22,8 @@ static int event_handler(struct game *gm)
 	int	no = -1;
 
 	while (sfRenderWindow_pollEvent(gm->wd, &event)) {
-		if (event.type == sfEvtKeyPressed &&
-				event.key.code == sfKeyEscape) {
-			return (1);
-		}
+		if (event.type == sfEvtMouseButtonPressed)
+			no = detection(gm);
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
 	}
@@ -32,7 +32,7 @@ static int event_handler(struct game *gm)
 
 static void draw_sprite(struct game *gm)
 {
-	struct queue		*tmp = gm->info;
+	struct queue		*tmp = gm->pause;
 	struct __entity__	*el = NULL;
 
 	while (tmp) {
@@ -42,11 +42,11 @@ static void draw_sprite(struct game *gm)
 	}
 }
 
-int infos(struct game *gm)
+int pause_game(struct game *gm)
 {
 	int	no = 0;
 
-	if (gm->info == NULL)
+	if (gm->pause == NULL)
 		init_game(gm);
 	while (sfRenderWindow_isOpen(gm->wd)) {
 		if ((no = event_handler(gm)) != -1)
