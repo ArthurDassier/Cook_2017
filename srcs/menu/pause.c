@@ -24,7 +24,7 @@ static int event_handler(struct game *gm)
 
 	while (sfRenderWindow_pollEvent(gm->wd, &event)) {
 		if (event.type == sfEvtMouseButtonPressed)
-			no = detection(gm);
+			no = detection_pause(gm);
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
 	}
