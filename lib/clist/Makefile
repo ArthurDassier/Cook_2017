@@ -12,14 +12,16 @@ FLAGS=	-g3 -Wall -Wextra -Werror -I./include
 
 NAME=	libclist.a
 
-INCLUDE_DIR=	./include
+INCLUDE_DIR=	$(realpath ./include)
 INCLUDE=		$(INCLUDE_DIR)/clist.h
 
-SRC_DIR=	./src
+SRC_DIR=	$(realpath ./src)
 SRC=		$(SRC_DIR)/stack/add_stack.c                                 \
 			$(SRC_DIR)/stack/pop_stack.c                                 \
 			$(SRC_DIR)/queue/add_queue.c                                 \
-			$(SRC_DIR)/queue/pop_queue.c
+			$(SRC_DIR)/queue/pop_queue.c                                 \
+			$(SRC_DIR)/tree/add_tree.c                                   \
+			$(SRC_DIR)/tree/pop_tree.c
 
 OBJ=		$(SRC:.c=.o)
 
@@ -34,10 +36,10 @@ $(NAME):	$(OBJ) $(INCLUDE)
 	$(CC) $(FLAGS) -o $@ -c $<
 
 clean:
-	@rm -rf $(OBJ)
+	rm -rf $(OBJ)
 
 fclean:		clean
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

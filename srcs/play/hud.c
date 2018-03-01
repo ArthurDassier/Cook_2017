@@ -67,13 +67,19 @@ static void draw_sprite(struct game *gm)
 		el->draw(el, gm->wd);
 		tmp = tmp->next;
 	}
+	tmp = (gm->bots) ? gm->bots->token : NULL;
+	while (tmp) {
+		el = tmp->token;
+		el->draw(el, gm->wd);
+		tmp = tmp->next;
+	}
 	sfRenderWindow_drawText(gm->wd, gm->score_text, NULL);
 }
 
 int launch(struct game *gm)
 {
 	int	no = 0;
-	int 	pos_x = 725;
+	int	pos_x = 725;
 	int	pos_y = 630;
 
 	if (gm->game == NULL)
@@ -82,7 +88,7 @@ int launch(struct game *gm)
 		if ((no = event_handler(gm)) == -1)
 			break;
 		if (no == 10) {
-			gm->score += 10;
+			check_food(gm);
 			clean_carpet(gm, &pos_x, &pos_y);
 		}
 		else  if (no != -2) {

@@ -76,6 +76,7 @@ struct game
 	struct queue	*user;
 	struct queue	*info;
 	struct queue	*pause;
+	struct stack	*bots;
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
@@ -89,6 +90,7 @@ int menu(struct game *gm);
 int detection(struct game *gm);
 int detection_pause(struct game *gm);
 void close_wd(struct game *gm);
+void check_food(struct game *gm);
 int launch(struct game *gm);
 int infos(struct game *gm);
 int pause_game(struct game *gm);
@@ -106,6 +108,7 @@ sfIntRect rect_bug(enum food type);
 
 struct queue *spider_cooked(int x, int y);
 struct queue *spider_bug(int x, int y);
+struct queue *generate_food(int x, int y);
 
 button_t *create_button(int, int, enum button type);
 background_t *create_background(int, int, enum background type);

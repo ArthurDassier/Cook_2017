@@ -40,3 +40,26 @@ int detection_pause(struct game *gm)
 	}
 	return (-1);
 }
+
+void check_food(struct game *gm)
+{
+	struct queue	*tmp2 = pop_stack(&(gm->bots));
+	struct __entity__	*el = NULL;
+	struct __entity__	*el2 = NULL;
+	int		flag = 1;
+
+	while (gm->user && tmp2) {
+		if (flag == 1)
+			--flag;
+		el = pop_queue(&gm->user);
+		el2 = pop_queue(&tmp2);
+		if (el->type != el2->type)
+			flag += 10;
+	}
+	if (flag)
+		gm->score -= flag;
+	while (gm->user) {
+		pop_queue(&gm->user);
+	}
+	gm->score += 50;
+}
