@@ -11,7 +11,7 @@ static void init_game(struct game *gm)
 {
 	gm->info = add_queue(gm->info, create_background(0, 0, MENU));
 	gm->info = add_queue(gm->info, create_background(674, 411, INFOS));
-	gm->info = add_queue(gm->info, create_button(680, 150, INFO_BUTTON));
+	gm->info = add_queue(gm->info, create_button(730, 150, INFO_BUTTON));
 }
 
 static int event_handler(struct game *gm)
