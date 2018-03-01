@@ -86,6 +86,7 @@ struct game
 struct game *init(void);
 int menu(struct game *gm);
 int detection(struct game *gm);
+int detection_pause(struct game *gm);
 void close_wd(struct game *gm);
 int launch(struct game *gm);
 int infos(struct game *gm);
