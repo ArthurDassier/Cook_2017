@@ -16,6 +16,8 @@ static int menu_loop(struct game *gm, int no)
 			break;
 		if (no == INFO_BUTTON)
 			infos(gm);
+		if (no == RTN_BUTTON)
+			break;
 		no = pause_game(gm);
 	}
 	return (no);
@@ -35,9 +37,9 @@ int main(int ac, char **av, char **env)
 		return (84);
 	while (sfRenderWindow_isOpen(gm->wd) && gm->status) {
 		no = menu(gm);
+		no = menu_loop(gm, no);
 		if (no == EXIT_BUTTON)
 			break;
-		no = menu_loop(gm, no);
 	}
 	return (0);
 }
