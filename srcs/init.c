@@ -36,6 +36,7 @@ struct game *init(void)
 	gm->user = NULL;
 	gm->info = NULL;
 	gm->game = NULL;
+	gm->bots = add_stack(gm->bots, generate_food(0, 0));
 	gm->score = 0;
 	set_text(gm);
 	return (gm);

@@ -67,6 +67,12 @@ static void draw_sprite(struct game *gm)
 		el->draw(el, gm->wd);
 		tmp = tmp->next;
 	}
+	tmp = (gm->bots) ? gm->bots->token : NULL;
+	while (tmp) {
+		el = tmp->token;
+		el->draw(el, gm->wd);
+		tmp = tmp->next;
+	}
 	sfRenderWindow_drawText(gm->wd, gm->score_text, NULL);
 }
 
@@ -80,7 +86,7 @@ int launch(struct game *gm)
 		if ((no = event_handler(gm)) == -1)
 			break;
 		if (no == 10)
-			gm->score += 1111111;
+			check_food(gm);
 		else  if (no != -2)
 			gm->user = add_queue(gm->user, create_food(800, 650,
 						no));
