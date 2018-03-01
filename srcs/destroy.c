@@ -7,7 +7,7 @@
 
 #include "my_cook.h"
 
-void modif(/* arguments */)
+void destroy_food(struct game *gm)
 {
-	/* code */
+	return;
 }

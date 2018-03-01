@@ -73,17 +73,23 @@ static void draw_sprite(struct game *gm)
 int launch(struct game *gm)
 {
 	int	no = 0;
+	int 	pos_x = 725;
+	int	pos_y = 630;
 
 	if (gm->game == NULL)
 		init_game(gm);
 	while (sfRenderWindow_isOpen(gm->wd)) {
 		if ((no = event_handler(gm)) == -1)
 			break;
-		if (no == 10)
-			gm->score += 1111111;
-		else  if (no != -2)
-			gm->user = add_queue(gm->user, create_food(800, 650,
+		if (no == 10) {
+			gm->score += 10;
+			clean_carpet(gm, &pos_x, &pos_y);
+		}
+		else  if (no != -2) {
+			gm->user = add_queue(gm->user, create_food(pos_x, pos_y,
 						no));
+			carpet_food(&pos_x, &pos_y);
+		}
 		draw_sprite(gm);
 		sfRenderWindow_display(gm->wd);
 		sfText_setString(gm->score_text, my_itoa(gm->score));

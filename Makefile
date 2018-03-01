@@ -38,6 +38,7 @@ SRC=		$(SRC_DIR)/main.c				\
 			$(SRC_DIR)/textures/create_customer.c	\
 			$(SRC_DIR)/textures/tab.c		\
 			$(SRC_DIR)/play/hud.c			\
+			$(SRC_DIR)/play/carpet.c		\
 
 OBJ=		$(SRC:.c=.o)
 

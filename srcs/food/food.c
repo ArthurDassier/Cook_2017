@@ -51,7 +51,7 @@ struct queue *generate_food(int x, int y)
 	int		no = 0;
 
 	srand(time(NULL));
-	no = rand() % 5;
+	no = rand() % 6;
 	tmp = tab[no](x, y);
 	if (tmp == NULL)
 		return (NULL);

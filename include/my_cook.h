@@ -98,6 +98,10 @@ char *bckg_tab(int type);
 char *customer_tab(int type);
 char *btn_tab(int type);
 
+void carpet_food(int *x, int *y);
+void destroy_food(struct game *gm);
+void clean_carpet(struct game *gm, int *pos_x, int *pos_y);
+
 sfIntRect rect_bug(enum food type);
 
 struct queue *spider_cooked(int x, int y);
