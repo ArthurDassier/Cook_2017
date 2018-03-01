@@ -10,10 +10,10 @@
 static void init_game(struct game *gm)
 {
 	gm->game = add_queue(gm->game, create_background(0, 0, GAME));
-	gm->game = add_queue(gm->game, create_food(300, 650, GREEN_BUG));
-	gm->game = add_queue(gm->game, create_food(400, 650, BLUE_BUG));
-	gm->game = add_queue(gm->game, create_food(500, 675, RAW_SPIDER));
-	gm->game = add_queue(gm->game, create_food(300, 750, RAW_WORM));
+	gm->game = add_queue(gm->game, create_food(250, 625, GREEN_BUG));
+	gm->game = add_queue(gm->game, create_food(350, 625, BLUE_BUG));
+	gm->game = add_queue(gm->game, create_food(475, 650, RAW_SPIDER));
+	gm->game = add_queue(gm->game, create_food(250, 750, RAW_WORM));
 }
 
 static int test(sfEvent event)

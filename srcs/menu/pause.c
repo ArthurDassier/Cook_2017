@@ -10,10 +10,10 @@
 static void init_game(struct game *gm)
 {
 	gm->pause = add_queue(gm->pause, create_background(0, 0, MENU));
-	gm->pause = add_queue(gm->pause, create_background(674, 200, PAUSE));
-	gm->pause = add_queue(gm->pause, create_button(680, 300, PLAY_BUTTON));
-	gm->pause = add_queue(gm->pause, create_button(300, 600, EXIT_BUTTON));
-	gm->pause = add_queue(gm->pause, create_button(1000, 600, INFO_BUTTON));
+	gm->pause = add_queue(gm->pause, create_background(800, 50, PAUSE));
+	gm->pause = add_queue(gm->pause, create_button(100, 600, PLAY_BUTTON));
+	gm->pause = add_queue(gm->pause, create_button(700, 600, INFO_BUTTON));
+	gm->pause = add_queue(gm->pause, create_button(1300, 600, EXIT_BUTTON));
 }
 
 static int event_handler(struct game *gm)
