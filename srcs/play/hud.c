@@ -80,7 +80,7 @@ int launch(struct game *gm)
 		if ((no = event_handler(gm)) == -1)
 			break;
 		if (no == 10)
-			gm->score += 10;
+			gm->score += 1111111;
 		else  if (no != -2)
 			gm->user = add_queue(gm->user, create_food(800, 650,
 						no));
