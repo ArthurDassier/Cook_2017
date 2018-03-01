@@ -21,8 +21,8 @@ int main(int ac, char **av, char **env)
 		return (84);
 	while (sfRenderWindow_isOpen(gm->wd) && gm->status) {
 		//if (no == 0)
-		no = menu(gm);
-	//	no = pause_game(gm);
+		//no = menu(gm);
+		no = pause_game(gm);
 		if (no == PLAY_BUTTON)
 			launch(gm);
 		if (no == EXIT_BUTTON)

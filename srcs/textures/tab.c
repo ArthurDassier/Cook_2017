@@ -37,8 +37,9 @@ char *bckg_tab(int type)
 }
 char *btn_tab(int type)
 {
-	char	*btn_tab[4] = {"textures/playbutton.png",
-		"textures/exitbutton.png","textures/help.png", NULL};
+	char	*btn_tab[5] = {"textures/playbutton.png",
+		"textures/exitbutton.png", "textures/help.png",
+		"textures/returnbutton.png", NULL};
 
 	return (btn_tab[type]);
 }

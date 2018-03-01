@@ -47,7 +47,8 @@ enum customer {
 enum button {
 	PLAY_BUTTON = 0,
 	EXIT_BUTTON = 1,
-	INFO_BUTTON = 2
+	INFO_BUTTON = 2,
+	RTN_BUTTON = 3
 };
 
 enum background {

@@ -7,7 +7,7 @@
 
 .SUFFIXES: .c .o
 
-CC=		gcc
+CC=		gcc -g3
 
 FLAGS=	-Wall -Wextra -I./include
 

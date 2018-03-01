@@ -14,6 +14,7 @@ static void init_game(struct game *gm)
 	gm->pause = add_queue(gm->pause, create_button(100, 600, PLAY_BUTTON));
 	gm->pause = add_queue(gm->pause, create_button(700, 600, INFO_BUTTON));
 	gm->pause = add_queue(gm->pause, create_button(1300, 600, EXIT_BUTTON));
+	gm->pause = add_queue(gm->pause, create_button(700, 800, RTN_BUTTON));
 }
 
 static int event_handler(struct game *gm)
