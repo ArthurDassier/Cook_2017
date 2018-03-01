@@ -10,8 +10,9 @@
 static void init_game(struct game *gm)
 {
 	gm->game = add_queue(gm->game, create_background(0, 0, GAME));
-	gm->game = add_queue(gm->game, create_food(250, 625, GREEN_BUG));
-	gm->game = add_queue(gm->game, create_food(350, 625, BLUE_BUG));
+	gm->game = add_queue(gm->game, create_button(1242, 742, RED_BOOK));
+	gm->game = add_queue(gm->game, create_food(250, 625, BLUE_BUG));
+	gm->game = add_queue(gm->game, create_food(350, 625, GREEN_BUG));
 	gm->game = add_queue(gm->game, create_food(475, 650, RAW_SPIDER));
 	gm->game = add_queue(gm->game, create_food(250, 750, RAW_WORM));
 }
@@ -47,6 +48,9 @@ static int event_handler(struct game *gm)
 			sfRenderWindow_close(gm->wd);
 		if (event.type == sfEvtKeyPressed)
 			return (test(event));
+		if (event.type == sfEvtMouseButtonPressed && detection_book(gm) == RED_BOOK)
+			gm->game = add_queue(gm->game, create_background(500, 200, BOOK));
+
 	}
 	return (-2);
 }

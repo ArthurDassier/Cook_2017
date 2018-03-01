@@ -29,17 +29,18 @@ char *food_tab(int type)
 
 char *bckg_tab(int type)
 {
-	char	*bckg_tab[5] = {"textures/1376139933194.png",
+	char	*bckg_tab[6] = {"textures/1376139933194.png",
 		"textures/HUD.png", "textures/Help.png",
-		"textures/pause.png", NULL};
+		"textures/pause.png", "textures/book.png", NULL};
 
 	return (bckg_tab[type]);
 }
 char *btn_tab(int type)
 {
-	char	*btn_tab[5] = {"textures/playbutton.png",
+	char	*btn_tab[6] = {"textures/playbutton.png",
 		"textures/exitbutton.png", "textures/help.png",
-		"textures/returnbutton.png", NULL};
+		"textures/returnbutton.png", "textures/redbook.png"
+		, NULL};
 
 	return (btn_tab[type]);
 }

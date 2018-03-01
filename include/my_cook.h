@@ -48,14 +48,16 @@ enum button {
 	PLAY_BUTTON = 0,
 	EXIT_BUTTON = 1,
 	INFO_BUTTON = 2,
-	RTN_BUTTON = 3
+	RTN_BUTTON = 3,
+	RED_BOOK = 4
 };
 
 enum background {
 	MENU = 0,
 	GAME = 1,
 	INFOS = 2,
-	PAUSE = 3
+	PAUSE = 3,
+	BOOK = 4
 };
 
 struct __entity__
@@ -88,6 +90,7 @@ struct game *init(void);
 int menu(struct game *gm);
 int detection(struct game *gm);
 int detection_pause(struct game *gm);
+int detection_book(struct game *gm);
 void close_wd(struct game *gm);
 int launch(struct game *gm);
 int infos(struct game *gm);
