@@ -96,9 +96,7 @@ int launch(struct game *gm)
 		if (no == 10)
 			check_food(gm, &pos_x, &pos_y);
 		else  if (no != -2) {
-			gm->user = add_queue(gm->user, create_food(pos_x, pos_y,
-						no));
-			carpet_food(&pos_x, &pos_y);
+			set_carpet(&pos_x, &pos_y, no, gm);
 		}
 		draw_sprite(gm);
 		sfRenderWindow_display(gm->wd);

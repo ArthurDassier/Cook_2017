@@ -108,6 +108,7 @@ char *btn_tab(int type);
 void carpet_food(int *x, int *y);
 void destroy_food(struct game *gm);
 void clean_carpet(int *pos_x, int *pos_y);
+void set_carpet(int *, int *, int, struct game *);
 
 sfIntRect rect_bug(enum food type);
 

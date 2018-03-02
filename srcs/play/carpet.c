@@ -21,3 +21,9 @@ void clean_carpet(int *pos_x, int *pos_y)
 	*pos_x = 725;
 	*pos_y = 630;
 }
+
+void set_carpet(int *pos_x, int *pos_y, int no, struct game *gm)
+{
+	gm->user = add_queue(gm->user, create_food(*pos_x, *pos_y, no));
+	carpet_food(pos_x, pos_y);
+}
