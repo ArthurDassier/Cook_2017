@@ -16,6 +16,7 @@ static void init_game(struct game *gm)
 	gm->game = add_queue(gm->game, create_food(475, 650, RAW_SPIDER));
 	gm->game = add_queue(gm->game, create_food(250, 750, RAW_WORM));
 	gm->horloge = sfClock_create();
+	init_phone(gm);
 }
 
 static int test(sfEvent event)
@@ -78,6 +79,7 @@ static void draw_sprite(struct game *gm)
 		tmp = tmp->next;
 	}
 	draw_client(gm);
+	draw_phone(gm);
 	sfRenderWindow_drawText(gm->wd, gm->score_text, NULL);
 }
 

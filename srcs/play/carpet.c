@@ -14,6 +14,8 @@ void carpet_food(int *x, int *y)
 		*x = 725;
 		*y += 50;
 	}
+	if (*y > 830)
+		*y = 630;
 }
 
 void clean_carpet(int *pos_x, int *pos_y)

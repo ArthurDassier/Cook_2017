@@ -7,7 +7,7 @@
 
 .SUFFIXES: .c .o
 
-CC=		gcc -g3
+CC=		gcc
 
 FLAGS=	-g3 -Wall -Wextra -I./include
 
@@ -38,9 +38,10 @@ SRC=		$(SRC_DIR)/main.c				\
 			$(SRC_DIR)/textures/create_customer.c	\
 			$(SRC_DIR)/textures/tab.c		\
 			$(SRC_DIR)/play/hud.c			\
-			$(SRC_DIR)/play/draw_client.c			\
+			$(SRC_DIR)/play/draw_client.c		\
 			$(SRC_DIR)/play/book.c			\
 			$(SRC_DIR)/play/carpet.c		\
+			$(SRC_DIR)/play/phone.c			\
 
 OBJ=		$(SRC:.c=.o)
 

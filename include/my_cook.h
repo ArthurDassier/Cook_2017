@@ -19,7 +19,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-#define WIN "Zonan_Kebab"
+#define WIN "Sesame & Sel"
 #define WIDTH 1920
 #define HEIGHT 1080
 #define CLIENT_NO 5
@@ -72,6 +72,14 @@ struct __entity__
 	int		(*collide)(struct __entity__ *, int, int);
 };
 
+struct ph
+{
+	sfTexture	*text_ph;
+	sfSprite	*spt_ph;
+	sfIntRect	anim_ph[3];
+	sfVector2f	pos_ph;
+};
+
 struct game
 {
 	struct queue	*menu;
@@ -80,6 +88,7 @@ struct game
 	struct queue	*info;
 	struct queue	*pause;
 	struct queue	**bots;
+	struct ph	*phone;
 	customer_t	**clients;
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
@@ -103,6 +112,7 @@ int launch(struct game *gm);
 int infos(struct game *gm);
 int pause_game(struct game *gm);
 int book(struct game *gm);
+void init_phone(struct game *gm);
 
 char *food_tab(int type);
 char *bckg_tab(int type);
@@ -114,7 +124,9 @@ void destroy_food(struct game *gm);
 void clean_carpet(int *pos_x, int *pos_y);
 void set_carpet(int *, int *, int, struct game *);
 void draw_client(struct game *gm);
+void draw_phone(struct game *gm);
 
+sfIntRect position_pixels(int a, int b, int c, int d);
 sfIntRect rect_bug(enum food type);
 
 struct queue *spider_cooked(int x, int y);
