@@ -44,6 +44,8 @@ static struct queue *worm(int x, int y)
 
 struct queue *generate_food(int x, int y)
 {
+	sfClock *horloge = sfClock_create();
+	sfTime temps = sfClock_getElapsedTime(horloge);
 	struct queue	*tmp = NULL;
 	struct queue	*(*tab[7])(int x, int y) = {&grilled_bug,
 		&spider_and_worm, &bug_and_worm, &worm, &spider_cooked,
@@ -55,5 +57,9 @@ struct queue *generate_food(int x, int y)
 	tmp = tab[no](x, y);
 	if (tmp == NULL)
 		return (NULL);
-	return (tmp);
+	if (temps.microseconds == 8000000) {
+		sfClock_restart(horloge);
+		return (tmp);
+	}
+	return (NULL);
 }
