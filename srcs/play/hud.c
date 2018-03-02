@@ -48,9 +48,9 @@ static int event_handler(struct game *gm)
 			sfRenderWindow_close(gm->wd);
 		if (event.type == sfEvtKeyPressed)
 			return (test(event));
-		if (event.type == sfEvtMouseButtonPressed && detection_book(gm) == RED_BOOK)
-			gm->game = add_queue(gm->game, create_background(500, 200, BOOK));
-
+		if (event.type == sfEvtMouseButtonPressed &&
+				detection_book(gm) == RED_BOOK)
+			book(gm);
 	}
 	return (-2);
 }
@@ -71,11 +71,13 @@ static void draw_sprite(struct game *gm)
 		el->draw(el, gm->wd);
 		tmp = tmp->next;
 	}
-	tmp = (gm->bots) ? gm->bots->token : NULL;
-	while (tmp) {
-		el = tmp->token;
-		el->draw(el, gm->wd);
-		tmp = tmp->next;
+	for (int i = 0; i < CLIENT_NO; i++) {
+		tmp = gm->bots[i];
+		while (tmp) {
+			el = tmp->token;
+			el->draw(el, gm->wd);
+			tmp = tmp->next;
+		}
 	}
 	sfRenderWindow_drawText(gm->wd, gm->score_text, NULL);
 }
@@ -91,10 +93,8 @@ int launch(struct game *gm)
 	while (sfRenderWindow_isOpen(gm->wd)) {
 		if ((no = event_handler(gm)) == -1)
 			break;
-		if (no == 10) {
-			check_food(gm);
-			clean_carpet(gm, &pos_x, &pos_y);
-		}
+		if (no == 10)
+			check_food(gm, &pos_x, &pos_y);
 		else  if (no != -2) {
 			gm->user = add_queue(gm->user, create_food(pos_x, pos_y,
 						no));

@@ -60,5 +60,7 @@ food_t *create_food(int x, int y, enum food type)
 	food->move = &move_fp;
 	food->collide = &collide_fp;
 	food = set_texture(food, type);
+	food->ch = 'G';
+	food->type = type;
 	return (food);
 }

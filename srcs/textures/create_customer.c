@@ -56,5 +56,7 @@ customer_t *create_customer(int x, int y, enum customer type)
 	customer->move = &move_fp;
 	customer->collide = &collide_fp;
 	customer = set_texture(customer, type);
+	customer->type = type;
+	customer->ch = 'U';
 	return (customer);
 }

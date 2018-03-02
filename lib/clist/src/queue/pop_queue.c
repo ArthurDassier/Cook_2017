@@ -6,6 +6,7 @@
 */
 
 #include "clist.h"
+#include <stdio.h>
 
 void *pop_queue(struct queue **root)
 {
@@ -17,6 +18,7 @@ void *pop_queue(struct queue **root)
 		return (NULL);
 	tmp = *root;
 	before = tmp;
+	printf("--?>%p:%p\n", tmp, tmp->next);
 	while (tmp->next) {
 		before = tmp;
 		tmp = tmp->next;

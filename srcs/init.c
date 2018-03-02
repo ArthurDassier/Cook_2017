@@ -36,8 +36,11 @@ struct game *init(void)
 	gm->user = NULL;
 	gm->info = NULL;
 	gm->game = NULL;
-	gm->bots = add_stack(gm->bots, generate_food(0, 0));
-	gm->score = 0;
+	gm->bots = malloc(sizeof(struct queue *) * CLIENT_NO);
+	if (gm->bots == NULL)
+		return (NULL);
+	gm->bots[0] = generate_food(500, 500);
+	gm->score = 100;
 	set_text(gm);
 	return (gm);
 }

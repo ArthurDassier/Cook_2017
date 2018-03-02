@@ -12,7 +12,7 @@ static struct queue *grilled_bug(int x, int y)
 {
 	struct queue	*tmp = NULL;
 
-	add_queue(tmp, create_food(x, y, GRILLED_BUG_B));
+	tmp = add_queue(tmp, create_food(x, y, GRILLED_BUG_B));
 	return (tmp);
 }
 
@@ -20,8 +20,8 @@ static struct queue *spider_and_worm(int x, int y)
 {
 	struct queue	*tmp = NULL;
 
-	add_queue(tmp, create_food(x, y, COOKED_SPIDER));
-	add_queue(tmp, create_food(x, y, COOKED_WORM));
+	tmp = add_queue(tmp, create_food(x, y, COOKED_SPIDER));
+	tmp = add_queue(tmp, create_food(x, y, COOKED_WORM));
 	return (tmp);
 }
 
@@ -29,8 +29,8 @@ static struct queue *bug_and_worm(int x, int y)
 {
 	struct queue	*tmp = NULL;
 
-	add_queue(tmp, create_food(x, y, GRILLED_BUG_B));
-	add_queue(tmp, create_food(x, y, COOKED_WORM));
+	tmp = add_queue(tmp, create_food(x, y, GRILLED_BUG_B));
+	tmp = add_queue(tmp, create_food(x, y, COOKED_WORM));
 	return (tmp);
 }
 
@@ -38,7 +38,7 @@ static struct queue *worm(int x, int y)
 {
 	struct queue	*tmp = NULL;
 
-	add_queue(tmp, create_food(x, y, COOKED_WORM));
+	tmp = add_queue(tmp, create_food(x, y, COOKED_WORM));
 	return (tmp);
 }
 

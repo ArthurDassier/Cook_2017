@@ -58,9 +58,14 @@ int detection_pause(struct game *gm)
 	return (-1);
 }
 
-void check_food(struct game *gm)
+static void cook_food(struct __entity__ *el)
 {
-	struct queue	*tmp2 = pop_stack(&(gm->bots));
+	el->type += 1;
+}
+
+void check_food(struct game *gm, int *pos_x, int *pos_y)
+{
+	struct queue	*tmp2 = gm->bots[0];
 	struct __entity__	*el = NULL;
 	struct __entity__	*el2 = NULL;
 	int		flag = 1;
@@ -68,15 +73,15 @@ void check_food(struct game *gm)
 	while (gm->user && tmp2) {
 		if (flag == 1)
 			--flag;
-		el = pop_queue(&gm->user);
-		el2 = pop_queue(&tmp2);
-		if (el->type != el2->type)
+		el = gm->user->token;
+		el2 = tmp2->token;
+		gm->user = gm->user->next;
+		tmp2 = tmp2->next;
+		cook_food(el);
+		if (el && el2 && el->type == el2->type)
 			flag += 10;
 	}
-	if (flag)
-		gm->score -= flag;
-	while (gm->user) {
-		pop_queue(&gm->user);
-	}
-	gm->score += 50;
+	gm->score += (flag) ? flag : -50;
+	gm->user = NULL;
+	clean_carpet(pos_x, pos_y);
 }

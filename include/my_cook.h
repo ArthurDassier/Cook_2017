@@ -22,6 +22,7 @@
 #define WIN "Zonan_Kebab"
 #define WIDTH 1920
 #define HEIGHT 1080
+#define CLIENT_NO 1
 
 typedef struct __entity__ button_t;
 typedef struct __entity__ background_t;
@@ -78,7 +79,7 @@ struct game
 	struct queue	*user;
 	struct queue	*info;
 	struct queue	*pause;
-	struct stack	*bots;
+	struct queue	**bots;
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
@@ -93,10 +94,11 @@ int detection(struct game *gm);
 int detection_pause(struct game *gm);
 int detection_book(struct game *gm);
 void close_wd(struct game *gm);
-void check_food(struct game *gm);
+void check_food(struct game *gm, int *pos_x, int *pos_y);
 int launch(struct game *gm);
 int infos(struct game *gm);
 int pause_game(struct game *gm);
+int book(struct game *gm);
 
 char *food_tab(int type);
 char *bckg_tab(int type);
@@ -105,7 +107,7 @@ char *btn_tab(int type);
 
 void carpet_food(int *x, int *y);
 void destroy_food(struct game *gm);
-void clean_carpet(struct game *gm, int *pos_x, int *pos_y);
+void clean_carpet(int *pos_x, int *pos_y);
 
 sfIntRect rect_bug(enum food type);
 

@@ -16,9 +16,8 @@ void carpet_food(int *x, int *y)
 	}
 }
 
-void clean_carpet(struct game *gm, int *pos_x, int *pos_y)
+void clean_carpet(int *pos_x, int *pos_y)
 {
-	gm->user = NULL;
 	*pos_x = 725;
 	*pos_y = 630;
 }
