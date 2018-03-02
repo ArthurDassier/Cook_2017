@@ -56,7 +56,7 @@ struct queue *generate_food(int x, int y, sfClock *horloge)
 	tmp = tab[no](x, y);
 	if (tmp == NULL)
 		return (NULL);
-	if (temps.microseconds >= 80000 && temps.microseconds <= 90000) {
+	if (temps.microseconds > 8000000) {
 		sfClock_restart(horloge);
 		return (tmp);
 	}

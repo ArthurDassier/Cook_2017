@@ -13,9 +13,9 @@
 #include <unistd.h>
 
 enum branch {
-	RIGHT = 0,
-	LEFT = 1,
-	ROOT = 2
+	RIGHT=0,
+	LEFT=1,
+	ROOT=2
 };
 
 struct tree {

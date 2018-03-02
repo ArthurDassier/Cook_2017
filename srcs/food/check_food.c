@@ -7,7 +7,21 @@
 
 #include "my_cook.h"
 
-static void lf_food(struct game *gm, int *pos_x, int *pos_y)
+static void move_bots(struct game *gm, int *pos_x, int *pos_y)
+{
+	gm->user = NULL;
+	clean_carpet(pos_x, pos_y);
+	gm->bots[0] = NULL;
+	for (int i = 1; i < CLIENT_NO; i++)
+		gm->bots[i - 1] = gm->bots[i];
+}
+
+static void cook_food(struct __entity__ *el)
+{
+	el->type += 1;
+}
+
+void check_food(struct game *gm, int *pos_x, int *pos_y)
 {
 	struct queue	*tmp2 = gm->bots[0];
 	struct __entity__	*el = NULL;
@@ -25,15 +39,6 @@ static void lf_food(struct game *gm, int *pos_x, int *pos_y)
 		if (el && el2 && el->type == el2->type)
 			flag += 10;
 	}
-	gm->score += (flag) ? flag : -50;
-	gm->user = NULL;
-	clean_carpet(pos_x, pos_y);
-}
-
-void check_food(struct game *gm, int *pos_x, int *pos_y, int i)
-{
-	while (i < CLIENT_NO) {
-		lf_food(gm, pos_x, pos_y);
-		++i;
-	}
+	gm->score += (flag > 1) ? flag : -50;
+	move_bots(gm, pos_x, pos_y);
 }

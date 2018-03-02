@@ -57,8 +57,3 @@ int detection_pause(struct game *gm)
 	}
 	return (-1);
 }
-
-static void cook_food(struct __entity__ *el)
-{
-	el->type += 1;
-}
