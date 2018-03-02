@@ -116,6 +116,7 @@ sfIntRect rect_bug(enum food type);
 struct queue *spider_cooked(int x, int y);
 struct queue *spider_bug(int x, int y);
 struct queue *generate_food(int x, int y, sfClock *horloge);
+void check_food(struct game *gm, int *pos_x, int *pos_y, int i);
 
 button_t *create_button(int, int, enum button type);
 background_t *create_background(int, int, enum background type);
