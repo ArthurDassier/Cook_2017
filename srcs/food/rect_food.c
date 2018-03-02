@@ -35,6 +35,6 @@ sfIntRect rect_bug(enum food type)
 	if (type == RAW_WORM)
 		rect = position_pixels(100, 0, 0, 100);
 	if (type == COOKED_WORM)
-		rect = position_pixels(50, 0, 100, 50);
+		rect = position_pixels(100, 0, 100, 100);
 	return (rect);
 }
