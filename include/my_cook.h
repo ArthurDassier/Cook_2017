@@ -22,7 +22,7 @@
 #define WIN "Zonan_Kebab"
 #define WIDTH 1920
 #define HEIGHT 1080
-#define CLIENT_NO 1
+#define CLIENT_NO 5
 
 typedef struct __entity__ button_t;
 typedef struct __entity__ background_t;
@@ -113,6 +113,7 @@ void carpet_food(int *x, int *y);
 void destroy_food(struct game *gm);
 void clean_carpet(int *pos_x, int *pos_y);
 void set_carpet(int *, int *, int, struct game *);
+void draw_client(struct game *gm);
 
 sfIntRect rect_bug(enum food type);
 

@@ -23,7 +23,8 @@ static void cook_food(struct __entity__ *el)
 
 void check_food(struct game *gm, int *pos_x, int *pos_y)
 {
-	struct queue	*tmp2 = gm->bots[0];
+	static int	i = 0;
+	struct queue	*tmp2 = gm->bots[i];
 	struct __entity__	*el = NULL;
 	struct __entity__	*el2 = NULL;
 	int		flag = 1;
@@ -41,4 +42,6 @@ void check_food(struct game *gm, int *pos_x, int *pos_y)
 	}
 	gm->score += (flag > 1) ? flag : -50;
 	move_bots(gm, pos_x, pos_y);
+	if (++i == CLIENT_NO)
+		i = 0;
 }

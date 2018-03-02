@@ -77,15 +77,7 @@ static void draw_sprite(struct game *gm)
 		el->draw(el, gm->wd);
 		tmp = tmp->next;
 	}
-	for (int i = 0; i < CLIENT_NO; i++) {
-		tmp = gm->bots[i];
-		while (tmp) {
-			gm->clients[i]->draw(gm->clients[i], gm->wd);
-			el = tmp->token;
-			el->draw(el, gm->wd);
-			tmp = tmp->next;
-		}
-	}
+	draw_client(gm);
 	sfRenderWindow_drawText(gm->wd, gm->score_text, NULL);
 }
 
