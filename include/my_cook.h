@@ -83,6 +83,7 @@ struct game
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
+	sfClock		*horloge;
 	int		score;
 	sfText		*score_text;
 	int		status;
@@ -114,7 +115,7 @@ sfIntRect rect_bug(enum food type);
 
 struct queue *spider_cooked(int x, int y);
 struct queue *spider_bug(int x, int y);
-struct queue *generate_food(int x, int y);
+struct queue *generate_food(int x, int y, sfClock *horloge);
 
 button_t *create_button(int, int, enum button type);
 background_t *create_background(int, int, enum background type);

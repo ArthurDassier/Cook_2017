@@ -15,6 +15,7 @@ static void init_game(struct game *gm)
 	gm->game = add_queue(gm->game, create_food(350, 625, GREEN_BUG));
 	gm->game = add_queue(gm->game, create_food(475, 650, RAW_SPIDER));
 	gm->game = add_queue(gm->game, create_food(250, 750, RAW_WORM));
+	gm->horloge = sfClock_create();
 }
 
 static int test(sfEvent event)
@@ -52,6 +53,9 @@ static int event_handler(struct game *gm)
 				detection_book(gm) == RED_BOOK)
 			book(gm);
 	}
+	for (int i = 0; i < CLIENT_NO; i++)
+		if (gm->bots[i] == NULL)
+			gm->bots[i] = generate_food(500, 500, gm->horloge);
 	return (-2);
 }
 

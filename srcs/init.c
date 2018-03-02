@@ -18,6 +18,8 @@ static void set_text(struct game *gm)
 	sfText_setFont(gm->score_text, fnt);
 	sfText_setPosition(gm->score_text, pos);
 	sfText_setString(gm->score_text, "0");
+	for (int i = 0; i < CLIENT_NO; i++)
+		gm->bots[i] = NULL;
 }
 
 struct game *init(void)
@@ -39,7 +41,6 @@ struct game *init(void)
 	gm->bots = malloc(sizeof(struct queue *) * CLIENT_NO);
 	if (gm->bots == NULL)
 		return (NULL);
-	gm->bots[0] = generate_food(500, 500);
 	gm->score = 100;
 	set_text(gm);
 	return (gm);
