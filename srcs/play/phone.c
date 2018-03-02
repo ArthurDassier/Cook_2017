@@ -9,8 +9,11 @@
 
 void draw_phone(struct game *gm)
 {
-	static int i = 0;
+	sfTime		time_s;
+	static int 	i = 0;
 
+	time_s.microseconds = 20000;
+	sfSleep(time_s);
 	sfSprite_setPosition(gm->phone->spt_ph, gm->phone->pos_ph);
 	sfRenderWindow_drawSprite(gm->wd, gm->phone->spt_ph, NULL);
 	sfSprite_setTextureRect(gm->phone->spt_ph, gm->phone->anim_ph[i]);
@@ -25,8 +28,8 @@ void init_anim_ph(struct game *gm)
 	int	i = 0;
 
 	while (i != 3) {
-		gm->phone->anim_ph[i] = position_pixels(300, stand, 300, 300);
-		stand += 250;
+		gm->phone->anim_ph[i] = position_pixels(300, stand, 0, 230);
+		stand += 265;
 		++i;
 	}
 }
@@ -38,6 +41,6 @@ void init_phone(struct game *gm)
 	gm->phone->spt_ph = sfSprite_create();
 	sfSprite_setTexture(gm->phone->spt_ph, gm->phone->text_ph, sfTrue);
 	init_anim_ph(gm);
-	gm->phone->pos_ph.x = 200;
-	gm->phone->pos_ph.y = 200;
+	gm->phone->pos_ph.x = 1430;
+	gm->phone->pos_ph.y = 742;
 }
