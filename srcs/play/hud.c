@@ -53,9 +53,11 @@ static int event_handler(struct game *gm)
 				detection_book(gm) == RED_BOOK)
 			book(gm);
 	}
-	for (int i = 0; i < CLIENT_NO; i++)
-		if (gm->bots[i] == NULL)
-			gm->bots[i] = generate_food(500, 500, gm->horloge);
+	for (int i = 0; i < CLIENT_NO; i++) {
+		if (gm->bots[i] == NULL) {
+			gm->bots[i] = generate_food(gm->horloge, gm, i);
+		}
+	}
 	return (-2);
 }
 
@@ -78,6 +80,7 @@ static void draw_sprite(struct game *gm)
 	for (int i = 0; i < CLIENT_NO; i++) {
 		tmp = gm->bots[i];
 		while (tmp) {
+			gm->clients[i]->draw(gm->clients[i], gm->wd);
 			el = tmp->token;
 			el->draw(el, gm->wd);
 			tmp = tmp->next;

@@ -20,6 +20,8 @@ static void set_text(struct game *gm)
 	sfText_setString(gm->score_text, "0");
 	for (int i = 0; i < CLIENT_NO; i++)
 		gm->bots[i] = NULL;
+	gm->next_pos_x = 1400;
+	gm->next_pos_y = 330;
 }
 
 struct game *init(void)
@@ -38,8 +40,9 @@ struct game *init(void)
 	gm->user = NULL;
 	gm->info = NULL;
 	gm->game = NULL;
+	gm->clients = malloc(sizeof(struct customer_t*) * CLIENT_NO);;
 	gm->bots = malloc(sizeof(struct queue *) * CLIENT_NO);
-	if (gm->bots == NULL)
+	if (gm->bots == NULL || gm->clients == NULL)
 		return (NULL);
 	gm->score = 100;
 	set_text(gm);

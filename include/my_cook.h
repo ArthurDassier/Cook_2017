@@ -80,6 +80,7 @@ struct game
 	struct queue	*info;
 	struct queue	*pause;
 	struct queue	**bots;
+	customer_t	**clients;
 	sfRenderWindow	*wd;
 	sfVideoMode	video_md;
 	sfTime		tm;
@@ -87,6 +88,8 @@ struct game
 	int		score;
 	sfText		*score_text;
 	int		status;
+	int		next_pos_x;
+	int		next_pos_y;
 };
 
 struct game *init(void);
@@ -115,7 +118,7 @@ sfIntRect rect_bug(enum food type);
 
 struct queue *spider_cooked(int x, int y);
 struct queue *spider_bug(int x, int y);
-struct queue *generate_food(int x, int y, sfClock *horloge);
+struct queue *generate_food(sfClock *horloge, struct game *gm, int i);
 void check_food(struct game *gm, int *pos_x, int *pos_y);
 
 button_t *create_button(int, int, enum button type);
