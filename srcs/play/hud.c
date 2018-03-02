@@ -36,6 +36,7 @@ static int test(sfEvent event)
 static int event_handler(struct game *gm)
 {
 	sfEvent	event;
+	static int red = 0;
 
 	while (sfRenderWindow_pollEvent(gm->wd, &event)) {
 		if (event.type == sfEvtKeyPressed &&
@@ -48,8 +49,12 @@ static int event_handler(struct game *gm)
 			sfRenderWindow_close(gm->wd);
 		if (event.type == sfEvtKeyPressed)
 			return (test(event));
-		if (event.type == sfEvtMouseButtonPressed && detection_book(gm) == RED_BOOK)
+		if (event.type == sfEvtMouseButtonPressed && detection_book(gm) == RED_BOOK && red == 0) {
 			gm->game = add_queue(gm->game, create_background(500, 200, BOOK));
+			red = 1;
+		}
+		else if (event.type == sfEvtMouseButtonPressed && red == 1)
+			gm->game = pop_queue(gm->game);
 
 	}
 	return (-2);
