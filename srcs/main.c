@@ -7,6 +7,16 @@
 
 #include "my_cook.h"
 
+static int code_h(char **av)
+{
+	if (av[1][0] == '-' && av[1][1] == 'h') {
+		my_putstr("Launch the game and play, ");
+		my_putstr("the help menu is inside the game\n");
+		return (0);
+	}
+	return (84);
+}
+
 static int menu_loop(struct game *gm, int no)
 {
 	while (sfRenderWindow_isOpen(gm->wd) && gm->status) {
@@ -30,6 +40,8 @@ int main(int ac, char **av, char **env)
 	int		no = 0;
 	struct game	*gm = NULL;
 
+	if (ac > 1)
+		return (code_h(av));
 	if (env[0] == NULL)
 		return (84);
 	gm = init();
