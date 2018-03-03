@@ -22,6 +22,10 @@ static void set_text(struct game *gm)
 		gm->bots[i] = NULL;
 	gm->next_pos_x = 1200;
 	gm->next_pos_y = 100;
+	gm->menu = NULL;
+	gm->user = NULL;
+	gm->info = NULL;
+	gm->game = NULL;
 }
 
 struct game *init(void)
@@ -34,12 +38,11 @@ struct game *init(void)
 	gm->video_md.height = HEIGHT;
 	gm->video_md.bitsPerPixel = 32;
 	gm->tm.microseconds = 20000;
+	gm->zikmu = sfMusic_createFromFile("./Musics/japan.wav");
+	sfMusic_setLoop(gm->zikmu, sfTrue);
+	sfMusic_play(gm->zikmu);
 	gm->wd = sfRenderWindow_create(gm->video_md, WIN, sfDefaultStyle, NULL);
 	gm->status = 1;
-	gm->menu = NULL;
-	gm->user = NULL;
-	gm->info = NULL;
-	gm->game = NULL;
 	gm->clients = malloc(sizeof(struct customer_t*) * CLIENT_NO);;
 	gm->bots = malloc(sizeof(struct queue *) * CLIENT_NO);
 	if (gm->bots == NULL || gm->clients == NULL)

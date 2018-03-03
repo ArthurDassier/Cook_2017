@@ -94,6 +94,7 @@ struct game
 	sfVideoMode	video_md;
 	sfTime		tm;
 	sfClock		*horloge;
+	sfMusic		*zikmu;
 	int		score;
 	sfText		*score_text;
 	int		status;
