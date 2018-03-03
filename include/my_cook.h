@@ -114,6 +114,7 @@ int infos(struct game *gm);
 int pause_game(struct game *gm);
 int book(struct game *gm);
 void init_phone(struct game *gm);
+void destroyer(struct game *gm);
 
 char *food_tab(int type);
 char *bckg_tab(int type);

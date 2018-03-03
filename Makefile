@@ -9,7 +9,7 @@
 
 CC=		gcc
 
-FLAGS=	-g3 -Wall -Wextra -I./include
+FLAGS=	-Wall -Wextra -I./include
 
 LFLAGS=	-L./lib -lmy -lmy_getopt -lclist
 ifeq ($(shell cat /etc/*-release | grep "Fedora"), )
@@ -24,6 +24,7 @@ SRC_DIR=	./srcs
 SRC=		$(SRC_DIR)/main.c				\
 			$(SRC_DIR)/init.c			\
 			$(SRC_DIR)/close_wd.c			\
+			$(SRC_DIR)/destroy.c			\
 			$(SRC_DIR)/menu/create_button.c		\
 			$(SRC_DIR)/menu/menu.c			\
 			$(SRC_DIR)/menu/detection.c		\

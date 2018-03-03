@@ -41,5 +41,6 @@ int main(int ac, char **av, char **env)
 		if (no == EXIT_BUTTON)
 			break;
 	}
+	destroyer(gm);
 	return (0);
 }
