@@ -35,8 +35,6 @@ static int menu_loop(struct game *gm, int no)
 
 int main(int ac, char **av, char **env)
 {
-	(void) ac;
-	(void) av;
 	int		no = 0;
 	struct game	*gm = NULL;
 
