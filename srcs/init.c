@@ -38,7 +38,7 @@ struct game *init(void)
 	gm->video_md.height = HEIGHT;
 	gm->video_md.bitsPerPixel = 32;
 	gm->tm.microseconds = 20000;
-	gm->zikmu = sfMusic_createFromFile("./Musics/japan.wav");
+	gm->zikmu = sfMusic_createFromFile("./Musics/japan.ogg");
 	sfMusic_setLoop(gm->zikmu, sfTrue);
 	sfMusic_play(gm->zikmu);
 	gm->wd = sfRenderWindow_create(gm->video_md, WIN, sfDefaultStyle, NULL);
