@@ -53,14 +53,14 @@ struct queue *generate_food(sfClock *horloge, struct game *gm, int i)
 
 	srand(time(NULL));
 	no = rand() % 6;
-	tmp = tab[no](gm->next_pos_x, gm->next_pos_y - 50);
+	tmp = tab[no](gm->next_pos_x + 200, gm->next_pos_y + 80);
 	if (tmp == NULL)
 		return (NULL);
 	if (temps.microseconds > 8000000) {
 		sfClock_restart(horloge);
 		gm->clients[i] = create_customer(gm->next_pos_x,
 				gm->next_pos_y, (i % 2) ? HOMME1 : FEMME);
-		gm->next_pos_x -= 100;
+		gm->next_pos_x -= 200;
 		return (tmp);
 	}
 	return (NULL);

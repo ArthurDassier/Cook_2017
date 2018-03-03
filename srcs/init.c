@@ -20,8 +20,8 @@ static void set_text(struct game *gm)
 	sfText_setString(gm->score_text, "0");
 	for (int i = 0; i < CLIENT_NO; i++)
 		gm->bots[i] = NULL;
-	gm->next_pos_x = 1400;
-	gm->next_pos_y = 330;
+	gm->next_pos_x = 1200;
+	gm->next_pos_y = 100;
 }
 
 struct game *init(void)
