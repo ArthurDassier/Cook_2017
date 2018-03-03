@@ -51,7 +51,6 @@ struct queue *generate_food(sfClock *horloge, struct game *gm, int i)
 		&spider_bug, NULL};
 	int		no = 0;
 
-	srand(time(NULL));
 	no = rand() % 6;
 	tmp = tab[no](gm->next_pos_x + 200, gm->next_pos_y + 80);
 	if (tmp == NULL)
