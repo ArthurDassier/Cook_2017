@@ -46,7 +46,7 @@ SRC=		$(SRC_DIR)/main.c				\
 
 OBJ=		$(SRC:.c=.o)
 
-all:		$(NAME) clean
+all:		$(NAME)
 
 $(NAME):	$(OBJ) $(INCLUDE)
 	make -C lib/my re

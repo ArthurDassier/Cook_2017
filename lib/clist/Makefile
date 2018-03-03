@@ -8,7 +8,7 @@
 CC=		gcc
 CP=		cp -r
 AR=		ar cr
-FLAGS=	-g3 -Wall -Wextra -Werror -I./include
+FLAGS=	-Wall -Wextra -I./include
 
 NAME=	libclist.a
 
