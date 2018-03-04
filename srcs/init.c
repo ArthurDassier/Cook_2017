@@ -6,22 +6,25 @@
 */
 
 #include "my_cook.h"
+//#include <Color.h>
 
 static void more_text(struct game *gm)
 {
 	sfFont		*fnt = sfFont_createFromFile("./fonts/arial.ttf");
 	sfVector2f	pos;
 
-	pos.x = 1000;
+	pos.x = 1020;
 	pos.y = 20;
 	gm->good_text = sfText_create();
 	gm->bad_text = sfText_create();
 	sfText_setFont(gm->good_text, fnt);
+	sfText_setColor(gm->good_text, sfGreen);
 	sfText_setPosition(gm->good_text, pos);
 	sfText_setString(gm->good_text, "0");
-	pos.x = 1200;
+	pos.x = 1195;
 	pos.y = 20;
 	sfText_setFont(gm->bad_text, fnt);
+	sfText_setColor(gm->bad_text, sfRed);
 	sfText_setPosition(gm->bad_text, pos);
 	sfText_setString(gm->bad_text, "0");
 	gm->good = 0;
