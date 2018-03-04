@@ -31,7 +31,7 @@ static int menu_loop(struct game *gm, int no)
 		if (no == RTN_BUTTON)
 			break;
 		if (leave == 3 || leave == -3)
-			return (leave);
+			return (end_it(gm, leave));
 		no = pause_game(gm);
 	}
 	return (no);

@@ -10,7 +10,7 @@
 static void init_end(struct game *gm, int status)
 {
 	gm->end = add_queue(gm->end, create_end(0, 0, BACK));
-	if (status == 0)
+	if (status == 3)
 		gm->end = add_queue(gm->end, create_end(680, 300, WINNER));
 	else
 		gm->end = add_queue(gm->end, create_end(680, 300, LOOSE));
@@ -56,5 +56,5 @@ int end_it(struct game *gm, int status)
 		sfSleep(gm->tm);
 		sfRenderWindow_clear(gm->wd, sfBlack);
 	}
-	return (no);
+	return (status);
 }

@@ -49,7 +49,7 @@ static int event_handler(struct game *gm)
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
 		if (event.type == sfEvtKeyPressed)
-			return (test(event, gm->score));
+			return (test(event));
 		if (event.type == sfEvtMouseButtonPressed &&
 				detection_book(gm) == RED_BOOK)
 			book(gm);
@@ -92,7 +92,8 @@ int launch(struct game *gm)
 	if (gm->game == NULL)
 		init_game(gm);
 	while (sfRenderWindow_isOpen(gm->wd)) {
-		if ((no = check_score) != 0 || (no = event_handler(gm)) == -1)
+		if ((no = check_score(gm->score)) != 0 ||
+				(no = event_handler(gm)) == -1)
 			break;
 		if (no == 10)
 			check_food(gm, &pos_x, &pos_y);
