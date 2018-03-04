@@ -33,7 +33,7 @@ static int collide_fp(end_t *self, int x, int y)
 
 end_t *create_end(int x, int y, enum end type)
 {
-	end_t	*bg = malloc(sizeof(end_t));
+	end_t		*bg = malloc(sizeof(end_t));
 	sfTexture	*tx;
 
 	if (bg == NULL)

@@ -94,6 +94,7 @@ struct game
 	struct queue	*user;
 	struct queue	*info;
 	struct queue	*pause;
+	struct queue	*end;
 	struct queue	**bots;
 	struct ph	*phone;
 	customer_t	**clients;
@@ -118,6 +119,7 @@ void close_wd(struct game *gm);
 void check_food(struct game *gm, int *pos_x, int *pos_y);
 int launch(struct game *gm);
 int infos(struct game *gm);
+int end_it(struct game *gm, int status);
 int pause_game(struct game *gm);
 int book(struct game *gm);
 void init_phone(struct game *gm);

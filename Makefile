@@ -44,6 +44,7 @@ SRC=		$(SRC_DIR)/main.c				\
 			$(SRC_DIR)/play/book.c			\
 			$(SRC_DIR)/play/carpet.c		\
 			$(SRC_DIR)/play/phone.c			\
+			$(SRC_DIR)/play/end.c			\
 
 OBJ=		$(SRC:.c=.o)
 
