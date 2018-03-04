@@ -28,6 +28,7 @@ typedef struct __entity__ button_t;
 typedef struct __entity__ background_t;
 typedef struct __entity__ customer_t;
 typedef struct __entity__ food_t;
+typedef struct __entity__ end_t;
 
 enum food {
 	GREEN_BUG = 0,
@@ -61,6 +62,12 @@ enum background {
 	BOOK = 4
 };
 
+enum end {
+	BACK = 0,
+	WINNER = 1,
+	LOOSE = 2
+};
+
 struct __entity__
 {
 	sfVector2f	pos;
@@ -87,6 +94,7 @@ struct game
 	struct queue	*user;
 	struct queue	*info;
 	struct queue	*pause;
+	struct queue	*end;
 	struct queue	**bots;
 	struct ph	*phone;
 	customer_t	**clients;
@@ -115,6 +123,7 @@ void close_wd(struct game *gm);
 void check_food(struct game *gm, int *pos_x, int *pos_y);
 int launch(struct game *gm);
 int infos(struct game *gm);
+int end_it(struct game *gm, int status);
 int pause_game(struct game *gm);
 int book(struct game *gm);
 void init_phone(struct game *gm);
@@ -124,6 +133,7 @@ char *food_tab(int type);
 char *bckg_tab(int type);
 char *customer_tab(int type);
 char *btn_tab(int type);
+char *win_loose_tab(int type);
 
 int check_score(int score);
 void carpet_food(int *x, int *y);
@@ -144,6 +154,7 @@ void check_food(struct game *gm, int *pos_x, int *pos_y);
 
 button_t *create_button(int, int, enum button type);
 background_t *create_background(int, int, enum background type);
+end_t *create_end(int, int, enum end type);
 food_t *create_food(int, int, enum food type);
 customer_t *create_customer(int, int, enum customer type);
 

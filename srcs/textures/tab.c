@@ -35,6 +35,7 @@ char *bckg_tab(int type)
 
 	return (bckg_tab[type]);
 }
+
 char *btn_tab(int type)
 {
 	char	*btn_tab[6] = {"textures/playbutton.png",
@@ -43,4 +44,12 @@ char *btn_tab(int type)
 		, NULL};
 
 	return (btn_tab[type]);
+}
+
+char *win_loose_tab(int type)
+{
+	char	*wl_tab[4] = {"textures/winorloose.png",
+		"textures/win.png", "textures/loose.png", NULL};
+
+	return (wl_tab[type]);
 }
