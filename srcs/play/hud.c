@@ -19,7 +19,7 @@ static void init_game(struct game *gm)
 	init_phone(gm);
 }
 
-static int test(sfEvent event)
+static int test(sfEvent event, struct game *gm)
 {
 	switch (event.key.code) {
 		case sfKeyG:
@@ -30,9 +30,13 @@ static int test(sfEvent event)
 			return (RAW_SPIDER);
 		case sfKeyW:
 			return (RAW_WORM);
+		case sfKeyP:
+			gm->score += 100;
+			break;
 		default:
 			return (-2);
 	}
+	return (-2);
 }
 
 static int event_handler(struct game *gm)
@@ -49,7 +53,7 @@ static int event_handler(struct game *gm)
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
 		if (event.type == sfEvtKeyPressed)
-			return (test(event));
+			return (test(event, gm));
 		if (event.type == sfEvtMouseButtonPressed &&
 				detection_book(gm) == RED_BOOK)
 			book(gm);

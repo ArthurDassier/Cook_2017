@@ -46,7 +46,7 @@ int end_it(struct game *gm, int status)
 {
 	int	no = 0;
 
-	if (gm->menu == NULL)
+	if (gm->end == NULL)
 		init_end(gm, status);
 	while (sfRenderWindow_isOpen(gm->wd)) {
 		if ((no = event_handler(gm)) != -1)
