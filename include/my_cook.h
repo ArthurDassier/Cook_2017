@@ -28,6 +28,7 @@ typedef struct __entity__ button_t;
 typedef struct __entity__ background_t;
 typedef struct __entity__ customer_t;
 typedef struct __entity__ food_t;
+typedef struct __entity__ end_t;
 
 enum food {
 	GREEN_BUG = 0,
@@ -59,6 +60,12 @@ enum background {
 	INFOS = 2,
 	PAUSE = 3,
 	BOOK = 4
+};
+
+enum end {
+	BACK = 0,
+	WINNER = 1,
+	LOOSE = 2
 };
 
 struct __entity__
@@ -120,6 +127,7 @@ char *food_tab(int type);
 char *bckg_tab(int type);
 char *customer_tab(int type);
 char *btn_tab(int type);
+char *win_loose_tab(int type);
 
 void carpet_food(int *x, int *y);
 void destroy_food(struct game *gm);
@@ -138,6 +146,7 @@ void check_food(struct game *gm, int *pos_x, int *pos_y);
 
 button_t *create_button(int, int, enum button type);
 background_t *create_background(int, int, enum background type);
+end_t *create_end(int, int, enum end type);
 food_t *create_food(int, int, enum food type);
 customer_t *create_customer(int, int, enum customer type);
 
