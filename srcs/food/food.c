@@ -52,7 +52,7 @@ struct queue *generate_food(sfClock *horloge, struct game *gm, int i)
 	int		no = 0;
 
 	no = rand() % 6;
-	tmp = tab[no](gm->next_pos_x + 200, gm->next_pos_y + 80);
+	tmp = tab[no](gm->next_pos_x + 200, gm->next_pos_y + 100);
 	if (tmp == NULL)
 		return (NULL);
 	if (temps.microseconds > 8000000) {

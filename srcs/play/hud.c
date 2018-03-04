@@ -49,16 +49,14 @@ static int event_handler(struct game *gm)
 		if (event.type == sfEvtClosed)
 			sfRenderWindow_close(gm->wd);
 		if (event.type == sfEvtKeyPressed)
-			return (test(event));
+			return (test(event, gm->score));
 		if (event.type == sfEvtMouseButtonPressed &&
 				detection_book(gm) == RED_BOOK)
 			book(gm);
 	}
-	for (int i = 0; i < CLIENT_NO; i++) {
-		if (gm->bots[i] == NULL) {
-			gm->bots[i] = generate_food(gm->horloge, gm, i);
-		}
-	}
+	food_gen(gm);
+	sfText_setString(gm->good_text, my_itoa(gm->good));
+	sfText_setString(gm->bad_text, my_itoa(gm->bad));
 	return (-2);
 }
 
@@ -81,6 +79,8 @@ static void draw_sprite(struct game *gm)
 	draw_client(gm);
 	draw_phone(gm);
 	sfRenderWindow_drawText(gm->wd, gm->score_text, NULL);
+	sfRenderWindow_drawText(gm->wd, gm->good_text, NULL);
+	sfRenderWindow_drawText(gm->wd, gm->bad_text, NULL);
 }
 
 int launch(struct game *gm)
@@ -92,7 +92,7 @@ int launch(struct game *gm)
 	if (gm->game == NULL)
 		init_game(gm);
 	while (sfRenderWindow_isOpen(gm->wd)) {
-		if ((no = event_handler(gm)) == -1)
+		if ((no = check_score) != 0 || (no = event_handler(gm)) == -1)
 			break;
 		if (no == 10)
 			check_food(gm, &pos_x, &pos_y);

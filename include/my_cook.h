@@ -97,6 +97,10 @@ struct game
 	sfMusic		*zikmu;
 	int		score;
 	sfText		*score_text;
+	sfText		*good_text;
+	sfText		*bad_text;
+	int		good;
+	int		bad;
 	int		status;
 	int		next_pos_x;
 	int		next_pos_y;
@@ -121,12 +125,14 @@ char *bckg_tab(int type);
 char *customer_tab(int type);
 char *btn_tab(int type);
 
+int check_score(int score);
 void carpet_food(int *x, int *y);
 void destroy_food(struct game *gm);
 void clean_carpet(int *pos_x, int *pos_y);
 void set_carpet(int *, int *, int, struct game *);
 void draw_client(struct game *gm);
 void draw_phone(struct game *gm);
+void food_gen(struct game *gm);
 
 sfIntRect position_pixels(int a, int b, int c, int d);
 sfIntRect rect_bug(enum food type);

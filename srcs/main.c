@@ -19,15 +19,19 @@ static int code_h(char **av)
 
 static int menu_loop(struct game *gm, int no)
 {
+	int	leave = 0;
+
 	while (sfRenderWindow_isOpen(gm->wd) && gm->status) {
 		if (no == PLAY_BUTTON)
-			launch(gm);
+			leave = launch(gm);
 		if (no == EXIT_BUTTON)
 			break;
 		if (no == INFO_BUTTON)
 			infos(gm);
 		if (no == RTN_BUTTON)
 			break;
+		if (leave == 3 || leave == -3)
+			return (leave);
 		no = pause_game(gm);
 	}
 	return (no);
@@ -49,6 +53,10 @@ int main(int ac, char **av, char **env)
 		no = menu(gm);
 		no = menu_loop(gm, no);
 		if (no == EXIT_BUTTON)
+			break;
+		if (no == -3)
+			break;
+		if (no == 3)
 			break;
 	}
 	destroyer(gm);

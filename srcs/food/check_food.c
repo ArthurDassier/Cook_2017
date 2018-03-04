@@ -9,6 +9,8 @@
 
 static void move_bots(struct game *gm, int *pos_x, int *pos_y)
 {
+	static int	i = 0;
+
 	free(gm->user);
 	gm->user = NULL;
 	clean_carpet(pos_x, pos_y);
@@ -19,11 +21,20 @@ static void move_bots(struct game *gm, int *pos_x, int *pos_y)
 			gm->bots[i] = NULL;
 		}
 	}
+	if (++i == CLIENT_NO) {
+		i = 0;
+		gm->next_pos_x = 1200;
+		gm->next_pos_y = 100;
+	}
 }
 
-static void cook_food(struct __entity__ *el)
+void food_gen(struct game *gm)
 {
-	el->type += 1;
+	for (int i = 0; i < CLIENT_NO; i++) {
+		if (gm->bots[i] == NULL) {
+			gm->bots[i] = generate_food(gm->horloge, gm, i);
+		}
+	}
 }
 
 static int loop_carpet(struct game *gm, struct __entity__ *el)
@@ -42,7 +53,6 @@ static int loop_carpet(struct game *gm, struct __entity__ *el)
 
 void check_food(struct game *gm, int *pos_x, int *pos_y)
 {
-	static int	i = 0;
 	struct queue	*tmp2 = gm->bots[0];
 	struct __entity__	*el = NULL;
 	int		flag = 0;
@@ -53,11 +63,10 @@ void check_food(struct game *gm, int *pos_x, int *pos_y)
 			flag += 10;
 		tmp2 = tmp2->next;
 	}
+	if (flag)
+		gm->good++;
+	else
+		gm->bad++;
 	gm->score += (flag) ? flag : -10;
 	move_bots(gm, pos_x, pos_y);
-	if (++i == CLIENT_NO) {
-		i = 0;
-		*pos_x = 0;
-		*pos_y = 0;
-	}
 }
